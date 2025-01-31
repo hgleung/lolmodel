@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import time
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -8,6 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from io import StringIO
+import re
 
 # URL of the player statistics
 url = 'https://gol.gg/players/list/season-S15/split-Winter/tournament-ALL/'
@@ -56,8 +58,28 @@ try:
     
     # Save to CSV
     df.to_csv('player_stats.csv', index=False)
+    
+    # Update README with timestamp
+    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')
+    readme_path = 'README.md'
+    
+    with open(readme_path, 'r') as f:
+        content = f.read()
+    
+    # Update the timestamp in README
+    updated_content = re.sub(
+        r'Last updated: .*$',
+        f'Last updated: {current_time}',
+        content,
+        flags=re.MULTILINE
+    )
+    
+    with open(readme_path, 'w') as f:
+        f.write(updated_content)
+    
     print("Data has been scraped and saved to player_stats.csv")
-    print(f"Shape of the dataset: {df.shape}")
+    print(f"README.md has been updated with timestamp: {current_time}")
+    print(f"\nShape of the dataset: {df.shape}")
     print("\nFirst few rows of the data:")
     print(df.head())
     print("\nColumns in the dataset:")
