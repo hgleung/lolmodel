@@ -4,6 +4,12 @@ This repository contains scripts to collect and analyze League of Legends player
 
 ## Data Collection History
 
-The `player_stats.csv` file contains player statistics scraped from gol.gg. Below is the history of data collection:
+### Player Statistics (player_stats.csv)
+- Last scraped: 2025-01-31 15:30:20 
 
-Last updated: 2025-01-31 15:14:16 
+## To Do:
+- [ ] Scrape team data (also gol)
+- [ ] IndexMatch
+- [ ] Scrape LX match data (fandom)
+- [ ] Implement model
+- [ ] Scrape PP / UD for lines

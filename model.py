@@ -3,10 +3,9 @@ import numpy as np
 
 def load_data():
     # Read the CSV file
-    df = pd.read_csv('player_stats.csv')
+    df = pd.read_csv('data/player_stats.csv')
     
     # Select the specified columns
-    # Note: Column names are lowercase and use underscores due to our scraping script
     selected_columns = [
         'player',
         'games',
@@ -18,7 +17,7 @@ def load_data():
         'csm',  # This is CSPM in the original data
         'kp%'   # This is KP% in the original data
     ]
-    
+        
     # Create a new dataframe with only the selected columns
     model_df = df[selected_columns]
     

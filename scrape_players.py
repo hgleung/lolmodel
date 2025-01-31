@@ -57,27 +57,26 @@ try:
                     pass
     
     # Save to CSV
-    df.to_csv('player_stats.csv', index=False)
+    df.to_csv('data/player_stats.csv', index=False)
     
     # Update README with timestamp
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')
     readme_path = 'README.md'
     
     with open(readme_path, 'r') as f:
-        content = f.read()
+        content = f.readlines()
     
-    # Update the timestamp in README
-    updated_content = re.sub(
-        r'Last updated: .*$',
-        f'Last updated: {current_time}',
-        content,
-        flags=re.MULTILINE
-    )
+    # Find and update the player statistics timestamp
+    for i, line in enumerate(content):
+        if '- Last scraped:' in line and 'player_stats.csv' in content[i-1]:
+            content[i] = f'- Last scraped: {current_time}\n'
+            break
     
+    # Write the updated content back to README
     with open(readme_path, 'w') as f:
-        f.write(updated_content)
+        f.writelines(content)
     
-    print("Data has been scraped and saved to player_stats.csv")
+    print("Data has been scraped and saved to data/player_stats.csv")
     print(f"README.md has been updated with timestamp: {current_time}")
     print(f"\nShape of the dataset: {df.shape}")
     print("\nFirst few rows of the data:")
