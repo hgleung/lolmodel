@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from scrape_match_history import get_match_history, calculate_averages
+from sklearn.linear_model import LinearRegression
 
 class Model:
     def __init__(self):
@@ -129,10 +130,16 @@ class Model:
         
         player_team = player_analysis['team_name']
         
-        return {
+        features = {
             # Player features
+            'player_3_game_win_avg': player_analysis['recent_performance']['wins']['last_3_win_avg'],
+            'player_3_game_loss_avg': player_analysis['recent_performance']['losses']['last_3_loss_avg'],
             'player_5_game_win_avg': player_analysis['recent_performance']['wins']['last_5_win_avg'],
             'player_5_game_loss_avg': player_analysis['recent_performance']['losses']['last_5_loss_avg'],
+            'player_7_game_win_avg': player_analysis['recent_performance']['wins']['last_7_win_avg'],
+            'player_7_game_loss_avg': player_analysis['recent_performance']['losses']['last_7_loss_avg'],
+            'player_9_game_win_avg': player_analysis['recent_performance']['wins']['last_9_win_avg'],
+            'player_9_game_loss_avg': player_analysis['recent_performance']['losses']['last_9_loss_avg'],
             'player_split_avg': player_analysis['player_stats']['average_kills'],
             
             # Team context
@@ -144,34 +151,110 @@ class Model:
             'opp_avg_game_time': self.teams.loc[self.teams['name'] == opponent_team, 'game_duration'].values[0]
         }
 
-    def predict_series_kills(self, features, n_games, predicted_wins):
-        """Predict total kills using weighted features"""
-        # Calculate game time factor
-        avg_game_time = (features['team_avg_game_time'] + features['opp_avg_game_time']) / 2
-        
-        # Calculate components
-        win_component = (features['player_5_game_win_avg'] * 0.7 +
-                        features['team_kills_avg'] * 0.2 +
-                        features['opp_deaths_avg'] * 0.1) * predicted_wins
-        
-        loss_component = (features['player_5_game_loss_avg'] * 0.5 +
-                        features['opp_deaths_avg'] * 0.3) * (n_games - predicted_wins)
-        
-        # Duration adjustment (normalized to 32.23 minutes, the average game duration globally)
-        time_factor = avg_game_time / 32.23
-        
-        # Calculate total kills
-        return (win_component + loss_component) * time_factor
+        features['team_kills_per_min'] = features['team_kills_avg'] / features['team_avg_game_time']
+        features['opp_deaths_per_min'] = features['opp_deaths_avg'] / features['opp_avg_game_time']
+        features['k_multi'] = features['opp_deaths_per_min'] / features['team_kills_per_min']
 
-    def calculate_global_avg_duration(self):
-        """Calculate the weighted average game duration across all teams"""
+        return features
+
+    def predict_series_kills(self, features, n_games, predicted_wins):
+        """Predict total kills using a regression model"""
+        # Features to use in prediction
+        feature_cols = [
+            'player_3_game_win_avg',
+            'player_3_game_loss_avg',
+            'player_5_game_win_avg',
+            'player_5_game_loss_avg',
+            'player_7_game_win_avg',
+            'player_7_game_loss_avg',
+            'player_9_game_win_avg',
+            'player_9_game_loss_avg',
+            'player_split_avg',
+            'team_kills_avg',
+            'team_avg_game_time',
+            'opp_deaths_avg',
+            'opp_avg_game_time',
+            'team_kills_per_min',
+            'opp_deaths_per_min',
+            'k_multi'
+        ]
         
-        # Calculate weighted average using number of games as weights
-        total_weighted_duration = (self.teams['game_duration'] * self.teams['games']).sum()
-        total_games = self.teams['games'].sum()
+        # Print available features
+        print("\nAvailable features:")
+        for key, value in features.items():
+            print(f"{key}: {value}")
         
-        avg_duration = total_weighted_duration / total_games if total_games > 0 else 0
-        return avg_duration
+        # Create feature array
+        try:
+            X = np.array([features[col] for col in feature_cols]).reshape(1, -1)
+            print("\nFeature array shape:", X.shape)
+            print("Feature values:", X[0])
+        except KeyError as e:
+            print(f"Missing feature: {e}")
+            return 0
+        
+        # Manual scaling based on typical ranges
+        scaling_ranges = {
+            'player_3_game_win_avg': (0, 12),    # Kills typically 0-10
+            'player_3_game_loss_avg': (0, 12),
+            'player_5_game_win_avg': (0, 12),
+            'player_5_game_loss_avg': (0, 12),
+            'player_7_game_win_avg': (0, 12),
+            'player_7_game_loss_avg': (0, 12),
+            'player_9_game_win_avg': (0, 12),
+            'player_9_game_loss_avg': (0, 12),
+            'player_split_avg': (0, 12),
+            'team_kills_avg': (5, 25),           # Team kills typically 5-25
+            'team_avg_game_time': (25, 45),      # Game time 25-45 minutes
+            'opp_deaths_avg': (5, 25),
+            'opp_avg_game_time': (25, 45),
+            'team_kills_per_min': (0, 2),        # Kills per minute 0-2
+            'opp_deaths_per_min': (0, 2),
+            'k_multi': (0.8, 1.2)                # Multiplier typically 0-2
+        }
+        
+        # Scale features manually
+        X_scaled = np.zeros_like(X, dtype=float)
+        for i, col in enumerate(feature_cols):
+            min_val, max_val = scaling_ranges[col]
+            X_scaled[0, i] = (X[0, i] - min_val) / (max_val - min_val)
+        
+        print("\nScaled features:", X_scaled[0])
+        
+        # Define coefficients
+        coefficients = np.array([
+            0.15,  # player_3_game_win_avg
+            0.10,  # player_3_game_loss_avg
+            0.12,  # player_5_game_win_avg
+            0.08,  # player_5_game_loss_avg
+            0.10,  # player_7_game_win_avg
+            0.06,  # player_7_game_loss_avg
+            0.08,  # player_9_game_win_avg
+            0.04,  # player_9_game_loss_avg
+            0.15,  # player_split_avg
+            0.20,  # team_kills_avg
+            -0.05, # team_avg_game_time
+            0.15,  # opp_deaths_avg
+            -0.05, # opp_avg_game_time
+            0.25,  # team_kills_per_min
+            0.20,  # opp_deaths_per_min
+            0.15   # k_multi
+        ])
+        
+        # Calculate base prediction
+        base_prediction = np.dot(X_scaled, coefficients) * 15  # Scale up to realistic kill numbers
+        print("\nBase prediction:", base_prediction)
+        
+        # Adjust for number of games and predicted wins
+        win_ratio = predicted_wins / n_games
+        print(f"\nWin ratio: {win_ratio}")
+        
+        # Final prediction
+        prediction = base_prediction * n_games * (1 + (win_ratio - 0.5))
+        print(f"\nFinal prediction: {prediction}")
+        
+        # Ensure prediction is positive and reasonable
+        return max(0, prediction[0])
 
 if __name__ == "__main__":
     # Load the data
@@ -180,10 +263,6 @@ if __name__ == "__main__":
     features = model.calculate_prediction_features("Aiming", "OK BRION")
     predict = model.predict_series_kills(features, 2, 1.4)
     print(predict)
-
-    # Calculate and print global average game duration
-    avg_duration = model.calculate_global_avg_duration()
-    print(f"Global weighted average game duration: {avg_duration:.2f} minutes")
 
     # # Example usage
     # player_name = input("Enter player name: ")
