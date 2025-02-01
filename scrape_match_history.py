@@ -47,7 +47,7 @@ def get_match_history(leaguepedia_id):
         df = df.reset_index(drop=True)
         
         # Print current columns for debugging
-        print("\nCurrent columns:", df.columns.tolist())
+        # print("\nCurrent columns:", df.columns.tolist())
         
         # Map the columns we want
         column_mapping = {
@@ -111,8 +111,8 @@ def calculate_averages(match_history, result_type='Win', last_n=[3, 5, 7, 9]):
         if len(filtered_df) >= n:
             last_n_games = filtered_df.head(n)
             avg_kills = last_n_games['kills'].astype(float).mean()
-            averages[f'last_{n}_{result_type.lower()}s_avg'] = avg_kills
+            averages[f'last_{n}_{result_type.lower()}_avg'] = avg_kills
         else:
-            averages[f'last_{n}_{result_type.lower()}s_avg'] = 'NA'
+            averages[f'last_{n}_{result_type.lower()}_avg'] = 'NA'
     
     return averages

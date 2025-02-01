@@ -13,6 +13,6 @@ This repository contains scripts to collect and analyze League of Legends player
 ## To Do:
 - [x] Scrape team data (also gol)
 - [x] IndexMatch
-- [ ] Scrape LX match data (fandom)
+- [x] Scrape LX match data (fandom)
 - [ ] Implement model
 - [ ] Scrape PP / UD for lines
