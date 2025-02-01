@@ -12,7 +12,7 @@ from io import StringIO
 import re
 
 # URL of the player statistics
-url = 'https://gol.gg/players/list/season-S15/split-Winter/tournament-ALL/'
+url = 'https://gol.gg/teams/list/season-S15/split-Winter/tournament-ALL/'
 
 # Set up Chrome options
 chrome_options = Options()
@@ -35,7 +35,7 @@ try:
     table_html = table.get_attribute('outerHTML')
     
     # Read the table using pandas
-    df = pd.read_html(StringIO(table_html), keep_default_na=False)[0]
+    df = pd.read_html(StringIO(table_html), keep_default_na=False, na_values=["-", "missing"])[0]
     
     # Clean the column names - remove any special characters and spaces
     df.columns = df.columns.str.strip().str.replace(' ', '_').str.lower()
@@ -51,15 +51,13 @@ try:
             # Try to convert KDA and other numeric values
             else:
                 try:
-                    # Only convert non-NA values
-                    mask = (df[col] != 'NA')
-                    df.loc[mask, col] = df.loc[mask, col].replace('-', '0')
-                    df.loc[mask, col] = pd.to_numeric(df.loc[mask, col], errors='ignore')
+                    df[col] = df[col].replace('-', '0')  # Replace '-' with '0'
+                    df[col] = pd.to_numeric(df[col], errors='ignore')
                 except:
                     pass
     
     # Save to CSV
-    df.to_csv('data/player_stats.csv', index=False)
+    df.to_csv('data/team_stats.csv', index=False)
     
     # Update README with timestamp
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')
@@ -68,9 +66,9 @@ try:
     with open(readme_path, 'r') as f:
         content = f.readlines()
     
-    # Find and update the player statistics timestamp
+    # Find and update the team statistics timestamp
     for i, line in enumerate(content):
-        if '- Last scraped:' in line and 'player_stats.csv' in content[i-1]:
+        if '- Last scraped:' in line and 'team_stats.csv' in content[i-1]:
             content[i] = f'- Last scraped: {current_time}\n'
             break
     
@@ -78,7 +76,7 @@ try:
     with open(readme_path, 'w') as f:
         f.writelines(content)
     
-    print("Data has been scraped and saved to data/player_stats.csv")
+    print("Data has been scraped and saved to data/team_stats.csv")
     print(f"README.md has been updated with timestamp: {current_time}")
     print(f"\nShape of the dataset: {df.shape}")
     print("\nFirst few rows of the data:")
