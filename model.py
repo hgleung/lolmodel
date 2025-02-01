@@ -155,13 +155,23 @@ class Model:
                         features['opp_deaths_avg'] * 0.1) * predicted_wins
         
         loss_component = (features['player_5_game_loss_avg'] * 0.5 +
-                        features['team_deaths_avg'] * 0.3) * (n_games - predicted_wins)
+                        features['opp_deaths_avg'] * 0.3) * (n_games - predicted_wins)
         
-        # Duration adjustment (normalized to 30 minutes)
-        time_factor = avg_game_time / 30
+        # Duration adjustment (normalized to 32.23 minutes, the average game duration globally)
+        time_factor = avg_game_time / 32.23
         
         # Calculate total kills
         return (win_component + loss_component) * time_factor
+
+    def calculate_global_avg_duration(self):
+        """Calculate the weighted average game duration across all teams"""
+        
+        # Calculate weighted average using number of games as weights
+        total_weighted_duration = (self.teams['game_duration'] * self.teams['games']).sum()
+        total_games = self.teams['games'].sum()
+        
+        avg_duration = total_weighted_duration / total_games if total_games > 0 else 0
+        return avg_duration
 
 if __name__ == "__main__":
     # Load the data
@@ -169,7 +179,11 @@ if __name__ == "__main__":
 
     features = model.calculate_prediction_features("Aiming", "OK BRION")
     predict = model.predict_series_kills(features, 2, 1.4)
-    print(features)
+    print(predict)
+
+    # Calculate and print global average game duration
+    avg_duration = model.calculate_global_avg_duration()
+    print(f"Global weighted average game duration: {avg_duration:.2f} minutes")
 
     # # Example usage
     # player_name = input("Enter player name: ")
