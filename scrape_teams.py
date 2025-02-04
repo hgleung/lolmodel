@@ -76,13 +76,13 @@ try:
     with open(readme_path, 'w') as f:
         f.writelines(content)
     
-    print("Data has been scraped and saved to data/team_stats.csv")
-    print(f"README.md has been updated with timestamp: {current_time}")
-    print(f"\nShape of the dataset: {df.shape}")
-    print("\nFirst few rows of the data:")
-    print(df.head())
-    print("\nColumns in the dataset:")
-    print(df.columns.tolist())
+    # print("Data has been scraped and saved to data/team_stats.csv")
+    # print(f"README.md has been updated with timestamp: {current_time}")
+    # print(f"\nShape of the dataset: {df.shape}")
+    # print("\nFirst few rows of the data:")
+    # print(df.head())
+    # print("\nColumns in the dataset:")
+    # print(df.columns.tolist())
 
 finally:
     # Close the browser

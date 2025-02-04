@@ -72,62 +72,120 @@ class Model:
         Returns:
             dict: Dictionary containing player and team statistics
         """
+        result = {}
         
         # Find player in the index
         player_info = self.indexmatch[self.indexmatch['PP ID'] == player_name]
         if len(player_info) == 0:
-            return {"error": f"Player {player_name} not found in index"}
+            raise ValueError(f"Player {player_name} not found in index")
         
         # Get player's team and leaguepedia ID
-        team_name = player_info['Team GOL ID'].iloc[0]
+        result['team_name'] = player_info['Team GOL ID'].iloc[0]
         leaguepedia_id = player_info['Leaguepedia ID'].iloc[0]
         
-        # Get player stats
-        player_stats = self.players[self.players['player'] == player_name]
+        # Get player stats using Leaguepedia ID
+        player_stats = self.players[self.players['player'] == leaguepedia_id]
         if len(player_stats) == 0:
-            return {"error": f"Player {player_name} not found in player statistics"}
+            print(f"Warning: Player {player_name} (Leaguepedia ID: {leaguepedia_id}) not found in player statistics, using defaults")
+            result['player_stats'] = {
+                'games': 0,
+                'win_rate': 0.5,
+                'kda': 0,
+                'avg_kills': 0,
+                'avg_deaths': 0,
+                'avg_assists': 0,
+                'csm': 0,
+                'kp%': 0
+            }
+        else:
+            result['player_stats'] = player_stats.iloc[0].to_dict()
         
         # Get team stats
-        team_stats = self.teams[self.teams['name'] == team_name]
+        team_stats = self.teams[self.teams['name'] == result['team_name']]
         if len(team_stats) == 0:
-            return {"error": f"Team {team_name} not found in team statistics"}
+            print(f"Warning: Team {result['team_name']} not found in team statistics, using defaults")
+            result['team_stats'] = {
+                'games': 0,
+                'win_rate': 0.5,
+                'k:d': 1.0,
+                'game_duration': '30:00',
+                'kills_/_game': 0,
+                'deaths_/_game': 0
+            }
+        else:
+            result['team_stats'] = team_stats.iloc[0].to_dict()
         
         # Get match history and calculate averages
         try:
             match_history = get_match_history(leaguepedia_id)
-            win_averages = calculate_averages(match_history, 'Win')
-            loss_averages = calculate_averages(match_history, 'Loss')
+            if match_history is not None and len(match_history) > 0:
+                # Calculate win averages
+                wins = match_history[match_history['result'].str.startswith('W')]
+                losses = match_history[match_history['result'].str.startswith('L')]
+                
+                result['recent_performance'] = {
+                    'wins': {
+                        'last_3_win_avg': wins.iloc[-3:]['kills'].mean() if len(wins) >= 3 else 0,
+                        'last_5_win_avg': wins.iloc[-5:]['kills'].mean() if len(wins) >= 5 else 0,
+                        'last_7_win_avg': wins.iloc[-7:]['kills'].mean() if len(wins) >= 7 else 0,
+                        'last_9_win_avg': wins.iloc[-9:]['kills'].mean() if len(wins) >= 9 else 0
+                    },
+                    'losses': {
+                        'last_3_loss_avg': losses.iloc[-3:]['kills'].mean() if len(losses) >= 3 else 0,
+                        'last_5_loss_avg': losses.iloc[-5:]['kills'].mean() if len(losses) >= 5 else 0,
+                        'last_7_loss_avg': losses.iloc[-7:]['kills'].mean() if len(losses) >= 7 else 0,
+                        'last_9_loss_avg': losses.iloc[-9:]['kills'].mean() if len(losses) >= 9 else 0
+                    },
+                    'split_avg': match_history['kills'].mean()
+                }
+            else:
+                print(f"Warning: No match history found for {player_name}, using defaults")
+                result['recent_performance'] = {
+                    'wins': {
+                        'last_3_win_avg': 0,
+                        'last_5_win_avg': 0,
+                        'last_7_win_avg': 0,
+                        'last_9_win_avg': 0
+                    },
+                    'losses': {
+                        'last_3_loss_avg': 0,
+                        'last_5_loss_avg': 0,
+                        'last_7_loss_avg': 0,
+                        'last_9_loss_avg': 0
+                    },
+                    'split_avg': 0
+                }
         except Exception as e:
-            win_averages = {"error": str(e)}
-            loss_averages = {"error": str(e)}
-        
-        # Compile results
-        results = {
-            "player_name": player_name,
-            "team_name": team_name,
-            "player_stats": {
-                "average_kills": player_stats['avg_kills'].iloc[0],
-                "games_played": player_stats['games'].iloc[0],
-                "win_rate": player_stats['win_rate'].iloc[0]
-            },
-            "team_stats": {
-                "kills_per_game": team_stats['kills_/_game'].iloc[0],
-                "average_game_duration": team_stats['game_duration'].iloc[0]
-            },
-            "recent_performance": {
-                "wins": win_averages,
-                "losses": loss_averages
+            print(f"Warning: Error calculating match history averages: {str(e)}, using defaults")
+            result['recent_performance'] = {
+                'wins': {
+                    'last_3_win_avg': 0,
+                    'last_5_win_avg': 0,
+                    'last_7_win_avg': 0,
+                    'last_9_win_avg': 0
+                },
+                'losses': {
+                    'last_3_loss_avg': 0,
+                    'last_5_loss_avg': 0,
+                    'last_7_loss_avg': 0,
+                    'last_9_loss_avg': 0
+                },
+                'split_avg': 0
             }
-        }
         
-        return results
+        return result
 
-    def calculate_prediction_features(self, player_name, opponent_team):
+    def get_team_name_from_code(self, team_code):
+        """Get the full team name from team code"""
+        team_data = self.indexmatch[self.indexmatch['Team'] == team_code]
+        if team_data.empty:
+            raise ValueError(f"Team code {team_code} not found")
+        return team_data['Team GOL ID'].iloc[0]
+
+    def _calculate_features(self, player_name, player_team, opponent_team):
         """Calculate all features for prediction"""
         # Player analysis
         player_analysis = self.analyze_player(player_name)
-        
-        player_team = player_analysis['team_name']
         
         features = {
             # Player features
@@ -139,7 +197,7 @@ class Model:
             'player_7_game_loss_avg': player_analysis['recent_performance']['losses']['last_7_loss_avg'],
             'player_9_game_win_avg': player_analysis['recent_performance']['wins']['last_9_win_avg'],
             'player_9_game_loss_avg': player_analysis['recent_performance']['losses']['last_9_loss_avg'],
-            'player_split_avg': player_analysis['player_stats']['average_kills'],
+            'player_split_avg': player_analysis['player_stats']['avg_kills'],
             
             # Team context
             'team_kills_avg': self.teams.loc[self.teams['name'] == player_team, 'kills_/_game'].values[0],
@@ -154,6 +212,23 @@ class Model:
         features['opp_deaths_per_min'] = features['opp_deaths_avg'] / features['opp_avg_game_time']
         features['k_multi'] = features['opp_deaths_per_min'] / features['team_kills_per_min']
 
+        return features
+
+    def calculate_prediction_features(self, player_name, opponent_team_code):
+        """Calculate prediction features for a player against an opponent team"""
+        # Get opponent team name from code
+        opponent_team = self.get_team_name_from_code(opponent_team_code)
+        
+        # Get player's current team
+        player_data = self.indexmatch[self.indexmatch['PP ID'] == player_name]
+        if player_data.empty:
+            raise ValueError(f"Player {player_name} not found")
+        
+        player_team_code = player_data['Team'].iloc[0]
+        player_team = self.get_team_name_from_code(player_team_code)
+        
+        # Calculate features using team names
+        features = self._calculate_features(player_name, player_team, opponent_team)
         return features
 
     def calculate_preliminary_prediction(self, features, win_chance):
@@ -208,8 +283,8 @@ if __name__ == "__main__":
     # Load the data
     model = Model()    
     print("\nLeague Prediction Model")
-    print("Enter input as: <player_name> <opponent_team> <win_chance>")
-    print("Example: Ruler GenG 0.7")
+    print("Enter input as: <player_name>/<opponent_team_code>/<win_chance>")
+    print("Example: Ruler/T1/0.7")
     print("Type 'quit' to exit")
     
     while True:
@@ -223,7 +298,7 @@ if __name__ == "__main__":
             
             # Parse input
             try:
-                player_name, opponent_team, win_chance = user_input.split('/')
+                player_name, opponent_team_code, win_chance = user_input.split('/')
                 win_chance = float(win_chance)
                 
                 # Validate win chance
@@ -232,14 +307,21 @@ if __name__ == "__main__":
                     continue
                 
             except ValueError:
-                print("Error: Please provide input in the format: player_name opponent_team win_chance")
+                print("Error: Please provide input in the format: player_name/opponent_team_code/win_chance")
                 continue
             
             # Calculate prediction
             try:
-                features = model.calculate_prediction_features(player_name, opponent_team)
+                features = model.calculate_prediction_features(player_name, opponent_team_code)
                 prediction = model.calculate_preliminary_prediction(features, win_chance)
-                print(f"\nPrediction for {player_name} vs {opponent_team} (Win chance: {win_chance:.1%}):")
+                
+                # Get team names for display
+                player_team_code = model.indexmatch[model.indexmatch['PP ID'] == player_name]['Team'].iloc[0]
+                player_team_name = model.get_team_name_from_code(player_team_code)
+                opponent_team_name = model.get_team_name_from_code(opponent_team_code)
+                
+                print(f"\nPrediction for {player_name} ({player_team_name}) vs {opponent_team_name}")
+                print(f"Win chance: {win_chance:.1%}")
                 print(f"Predicted kills per game: {prediction:.2f}")
                 
             except Exception as e:
