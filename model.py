@@ -156,9 +156,98 @@ class Model:
 
         return features
 
+    def calculate_preliminary_prediction(self, features, win_chance):
+        """
+        Calculate preliminary prediction using weighted averages of player performance
+        
+        Args:
+            features (dict): Dictionary containing player and team statistics
+            win_chance (float): Probability of winning (between 0 and 1)
+            
+        Returns:
+            float: Predicted kills per game
+        """
+        # Basic prediction using split average
+        basic_prediction = (
+            win_chance * 1.25 * features['player_split_avg'] +
+            (1 - win_chance) * 0.75 * features['player_split_avg']
+        )
+        
+        # Weighted win prediction using last N game averages
+        win_prediction = (
+            features['player_3_game_win_avg'] * 1 +
+            features['player_5_game_win_avg'] * 2 +
+            features['player_7_game_win_avg'] * 3 +
+            features['player_9_game_win_avg'] * 4
+        ) / 10
+        
+        # Adjust win prediction by k_multi
+        k_multi_adjustment = (features['k_multi'] - 1) / 5 + 1
+        win_prediction *= k_multi_adjustment
+        
+        # Weighted loss prediction using last N game averages
+        loss_prediction = (
+            features['player_3_game_loss_avg'] * 1 +
+            features['player_5_game_loss_avg'] * 2 +
+            features['player_7_game_loss_avg'] * 3 +
+            features['player_9_game_loss_avg'] * 4
+        ) / 10
+        
+        # Adjust loss prediction by k_multi
+        loss_prediction *= k_multi_adjustment
+        
+        # Combine predictions based on win chance
+        advanced_prediction = win_chance * win_prediction + (1 - win_chance) * loss_prediction
+        
+        # Average the basic and advanced predictions
+        final_prediction = (basic_prediction + advanced_prediction) / 2
+        
+        return max(0, final_prediction)
+
 if __name__ == "__main__":
     # Load the data
     model = Model()    
-
-    features = model.calculate_prediction_features("Ruler", "OK BRION")
-    print(features)
+    print("\nLeague Prediction Model")
+    print("Enter input as: <player_name> <opponent_team> <win_chance>")
+    print("Example: Ruler GenG 0.7")
+    print("Type 'quit' to exit")
+    
+    while True:
+        try:
+            # Get input
+            user_input = input("\nEnter prediction parameters: ").strip()
+            
+            # Check for quit command
+            if user_input.lower() == 'quit':
+                break
+            
+            # Parse input
+            try:
+                player_name, opponent_team, win_chance = user_input.split('/')
+                win_chance = float(win_chance)
+                
+                # Validate win chance
+                if not 0 <= win_chance <= 1:
+                    print("Error: Win chance must be between 0 and 1")
+                    continue
+                
+            except ValueError:
+                print("Error: Please provide input in the format: player_name opponent_team win_chance")
+                continue
+            
+            # Calculate prediction
+            try:
+                features = model.calculate_prediction_features(player_name, opponent_team)
+                prediction = model.calculate_preliminary_prediction(features, win_chance)
+                print(f"\nPrediction for {player_name} vs {opponent_team} (Win chance: {win_chance:.1%}):")
+                print(f"Predicted kills per game: {prediction:.2f}")
+                
+            except Exception as e:
+                print(f"Error calculating prediction: {str(e)}")
+                
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            break
+        except Exception as e:
+            print(f"Unexpected error: {str(e)}")
+            continue
