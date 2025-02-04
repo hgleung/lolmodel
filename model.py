@@ -74,8 +74,8 @@ class Model:
         """
         result = {}
         
-        # Find player in the index
-        player_info = self.indexmatch[self.indexmatch['PP ID'] == player_name]
+        # Find player in the index (case-insensitive)
+        player_info = self.indexmatch[self.indexmatch['PP ID'].str.upper() == player_name.upper()]
         if len(player_info) == 0:
             raise ValueError(f"Player {player_name} not found in index")
         
@@ -83,10 +83,15 @@ class Model:
         result['team_name'] = player_info['Team GOL ID'].iloc[0]
         leaguepedia_id = player_info['Leaguepedia ID'].iloc[0]
         
-        # Get player stats using Leaguepedia ID
-        player_stats = self.players[self.players['player'] == leaguepedia_id]
+        # Try to get player stats using Leaguepedia ID first (case-insensitive)
+        player_stats = self.players[self.players['player'].str.upper() == leaguepedia_id.upper()]
+        
+        # If not found, try using PP ID as fallback (case-insensitive)
         if len(player_stats) == 0:
-            print(f"Warning: Player {player_name} (Leaguepedia ID: {leaguepedia_id}) not found in player statistics, using defaults")
+            player_stats = self.players[self.players['player'].str.upper() == player_name.upper()]
+        
+        if len(player_stats) == 0:
+            print(f"Warning: Player {player_name} not found in player statistics using either ID, using defaults")
             result['player_stats'] = {
                 'games': 0,
                 'win_rate': 0.5,
@@ -177,7 +182,8 @@ class Model:
 
     def get_team_name_from_code(self, team_code):
         """Get the full team name from team code"""
-        team_data = self.indexmatch[self.indexmatch['Team'] == team_code]
+        # Case-insensitive team code lookup
+        team_data = self.indexmatch[self.indexmatch['Team'].str.upper() == team_code.upper()]
         if team_data.empty:
             raise ValueError(f"Team code {team_code} not found")
         return team_data['Team GOL ID'].iloc[0]
@@ -220,7 +226,7 @@ class Model:
         opponent_team = self.get_team_name_from_code(opponent_team_code)
         
         # Get player's current team
-        player_data = self.indexmatch[self.indexmatch['PP ID'] == player_name]
+        player_data = self.indexmatch[self.indexmatch['PP ID'].str.upper() == player_name.upper()]
         if player_data.empty:
             raise ValueError(f"Player {player_name} not found")
         
@@ -316,7 +322,7 @@ if __name__ == "__main__":
                 prediction = model.calculate_preliminary_prediction(features, win_chance)
                 
                 # Get team names for display
-                player_team_code = model.indexmatch[model.indexmatch['PP ID'] == player_name]['Team'].iloc[0]
+                player_team_code = model.indexmatch[model.indexmatch['PP ID'].str.upper() == player_name.upper()]['Team'].iloc[0]
                 player_team_name = model.get_team_name_from_code(player_team_code)
                 opponent_team_name = model.get_team_name_from_code(opponent_team_code)
                 

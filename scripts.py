@@ -9,8 +9,8 @@ def debug_player(player_name):
     print("\n1. Checking index_match.csv...")
     index_df = pd.read_csv('data/index_match.csv', keep_default_na=False)
     
-    # Check if player exists in index
-    player_data = index_df[index_df['PP ID'] == player_name]
+    # Check if player exists in index (case-insensitive)
+    player_data = index_df[index_df['PP ID'].str.upper() == player_name.upper()]
     print(f"Found {len(player_data)} entries for {player_name} in index_match.csv")
     if not player_data.empty:
         print("Player data:")
@@ -54,8 +54,8 @@ def debug_player(player_name):
             
     else:
         print(f"Player {player_name} not found in index_match.csv")
-        print("\nAvailable players:")
-        print(sorted(index_df['PP ID'].unique()))
+        # print("\nAvailable players:")
+        # print(sorted(index_df['PP ID'].unique()))
 
 def update_stats():
     """Update both player and team statistics"""
