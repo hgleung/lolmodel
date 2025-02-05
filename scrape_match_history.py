@@ -59,7 +59,6 @@ def get_match_history(leaguepedia_id):
             'Team': 'team',
             'Vs': 'opponent',
             'Len': 'game_length',
-            'C': 'champion',
             'K': 'kills',
             'D': 'deaths',
             'A': 'assists',
@@ -100,19 +99,23 @@ def get_match_history(leaguepedia_id):
 
 def calculate_averages(match_history, result_type='Win', last_n=[3, 5, 7, 9]):
     """
-    Calculate averages for the last N games with specified result
-    Returns a dictionary with averages for each N
+    Calculate averages for the last N games with specified result.
+    If there aren't enough games to fill the window, uses all available games.
+    Returns a dictionary with averages for each N.
     """
     # Filter for the specified result
     filtered_df = match_history[match_history['result'] == result_type]
     
     averages = {}
     for n in last_n:
-        if len(filtered_df) >= n:
-            last_n_games = filtered_df.head(n)
+        # Use all available games if we don't have enough to fill the window
+        available_games = min(n, len(filtered_df))
+        if available_games > 0:
+            last_n_games = filtered_df.head(available_games)
             avg_kills = last_n_games['kills'].astype(float).mean()
             averages[f'last_{n}_{result_type.lower()}_avg'] = avg_kills
         else:
-            averages[f'last_{n}_{result_type.lower()}_avg'] = 'NA'
+            # Only use 0 if we have no games at all
+            averages[f'last_{n}_{result_type.lower()}_avg'] = 0.0
     
     return averages

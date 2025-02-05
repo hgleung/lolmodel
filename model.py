@@ -380,16 +380,20 @@ class Model:
 if __name__ == "__main__":
     # Load the data
     model = Model()
+    print("\nLeague Prediction Model")
+    print("Enter input as: <player_name> <opponent_team_code> <win_chance>")
+    print("Example: Ruler T1 0.7")
+    print("Type 'quit' to exit")
 
     while True:
         try:
             # Get user input
-            player_name = input("Enter player name (or 'q' to quit): ")
-            if player_name.lower() == 'q':
+            user_input = input("\nEnter prediction parameters: ").strip()
+            if user_input.lower() == 'q':
                 break
 
-            opponent_team_code = input("Enter opponent team code: ")
-            win_chance = float(input("Enter win chance (0-1): "))
+            player_name, opponent_team_code, win_chance = user_input.split()
+            win_chance = float(win_chance)
 
             # Make predictions
             try:
