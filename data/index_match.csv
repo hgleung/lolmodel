@@ -56,7 +56,6 @@ BROC,Starlit,LCKCL,Starlit,Starlit,OK BRION Challengers,OKSavingsBank_BRION_Chal
 BROC,Levy,LCKCL,Levy,Levy,OK BRION Challengers,OKSavingsBank_BRION_Challengers
 BROC,Kice,LCKCL,Kice,Kice,OK BRION Challengers,OKSavingsBank_BRION_Challengers
 DKC,Jaehyuk,LCKCL,Jaehyuk,Jaehyuk,DK Challengers,Dplus_KIA_Challengers
-DKC,Sungmin,LCKCL,Sungmin,Sungmin,DK Challengers,Dplus_KIA_Challengers
 DKC,Sharvel,LCKCL,Sharvel,Sharvel,DK Challengers,Dplus_KIA_Challengers
 DKC,Garden,LCKCL,Garden,Garden_(Seol_Jeong-won),DK Challengers,Dplus_KIA_Challengers
 DKC,Wayne,LCKCL,Wayne,Wayne_(Hwang_Seo-hyeon),DK Challengers,Dplus_KIA_Challengers
@@ -91,7 +90,7 @@ DNFC,Minous,LCKCL,Minous,Minous,DNF Challengers,DN_Freecs_Challengers
 DNFC,Quantum,LCKCL,Quantum,Quantum_(Son_Jeong-hwan),DNF Challengers,DN_Freecs_Challengers
 KTC,Casting,LCKCL,Casting,Casting,KT Challengers,KT_Rolster_Challengers
 KTC,Sero,LCKCL,Sero,Sero,KT Challengers,KT_Rolster_Challengers
-KTC,Youngjae,LCKCL,Youngjae,Youngjae,KT Challengers,KT_Rolster_Challengers
+KTC,YoungJae,LCKCL,YoungJae,YoungJae,KT Challengers,KT_Rolster_Challengers
 KTC,Zinie,LCKCL,Zinie,Zinie,KT Challengers,KT_Rolster_Challengers
 KTC,Paduck,LCKCL,Paduck,Paduck,KT Challengers,KT_Rolster_Challengers
 KTC,Peter,LCKCL,Peter,Peter_(Jeong_Yoon-su),KT Challengers,KT_Rolster_Challengers
@@ -116,11 +115,11 @@ FNC,Oscarinin,LEC,Oscarinin,Oscarinin,Fnatic,Fnatic
 FNC,Razork,LEC,Razork,Razork,Fnatic,Fnatic
 FNC,Humanoid,LEC,Humanoid,Humanoid,Fnatic,Fnatic
 FNC,Upset,LEC,Upset,Upset,Fnatic,Fnatic
-FNC,MikyX,LEC,MikyX,MikyX,Fnatic,Fnatic
+FNC,Mikyx,LEC,Mikyx,Mikyx,Fnatic,Fnatic
 G2,BrokenBlade,LEC,BrokenBlade,BrokenBlade,G2 Esports,G2_Esports
-G2,Skewmond,LEC,Skewmond,Skewmond,G2 Esports,G2_Esports
+G2,SkewMond,LEC,SkewMond,SkewMond,G2 Esports,G2_Esports
 G2,Caps,LEC,Caps,Caps,G2 Esports,G2_Esports
-G2,HansSama,LEC,Hans Sama,Hans Sama,G2 Esports,G2_Esports
+G2,Hans Sama,LEC,Hans Sama,Hans Sama,G2 Esports,G2_Esports
 G2,Labrov,LEC,Labrov,Labrov,G2 Esports,G2_Esports
 GX,Lot,LEC,Lot,Lot,GIANTX,GIANTX
 GX,Closer,LEC,Closer,Closer_(Can_Çelik),GIANTX,GIANTX
@@ -144,7 +143,7 @@ RGE,Patrik,LEC,Patrik,Patrik,Rogue,Rogue_(European_Team)
 RGE,Execute,LEC,Execute,Execute,Rogue,Rogue_(European_Team)
 SK,JNX,LEC,JNX,JNX,SK Gaming,SK_Gaming
 SK,ISMA,LEC,ISMA,ISMA,SK Gaming,SK_Gaming
-SK,Reeker,LEC,Reeker,Reeker,SK Gaming,SK_Gaming
+SK,RKR,LEC,RKR,RKR,SK Gaming,SK_Gaming
 SK,Rahel,LEC,Rahel,Rahel,SK Gaming,SK_Gaming
 SK,Loopy,LEC,Loopy,Loopy,SK Gaming,SK_Gaming
 TH,Carlsen,LEC,Carlsen,Carlsen,Team Heretics,Team_Heretics
@@ -152,7 +151,7 @@ TH,Sheo,LEC,Sheo,Sheo,Team Heretics,Team_Heretics
 TH,Kamiloo,LEC,Kamiloo,Kamiloo,Team Heretics,Team_Heretics
 TH,Flakked,LEC,Flakked,Flakked,Team Heretics,Team_Heretics
 TH,Stend,LEC,Stend,Stend,Team Heretics,Team_Heretics
-VIT,NaakNako,LEC,Naak Nako,Naak Nako,Team Vitality,Team_Vitality
+VIT,Naak Nako,LEC,Naak Nako,Naak Nako,Team Vitality,Team_Vitality
 VIT,Lyncas,LEC,Lyncas,Lyncas,Team Vitality,Team_Vitality
 VIT,Czajek,LEC,Czajek,Czajek,Team Vitality,Team_Vitality
 VIT,Carzzy,LEC,Carzzy,Carzzy,Team Vitality,Team_Vitality
@@ -167,11 +166,11 @@ BLG,Wei,LPL,Wei,Wei_(Yan_Yang-Wei),Bilibili Gaming,Bilibili Gaming
 BLG,Knight,LPL,Knight,Knight_(Zhuo_Ding),Bilibili Gaming,Bilibili Gaming
 BLG,Elk,LPL,Elk,Elk,Bilibili Gaming,Bilibili Gaming
 BLG,ON,LPL,ON,ON,Bilibili Gaming,Bilibili Gaming
-EDG,zdz,LPL,Zdz,Zdz,EDward Gaming,EDward Gaming
-EDG,xiaohao,LPL,Xiaohao,Xiaohao,EDward Gaming,EDward Gaming
-EDG,Angel,LPL,Angel,Angel_(Xiang_Tao),EDward Gaming,EDward Gaming
-EDG,Assum,LPL,Assum,Assum,EDward Gaming,EDward Gaming
-EDG,Wink,LPL,Wink,Wink,EDward Gaming,EDward Gaming
+EDG,zdz,LPL,Zdz,Zdz,Edward Gaming,EDward_Gaming
+EDG,xiaohao,LPL,Xiaohao,Xiaohao,Edward Gaming,EDward_Gaming
+EDG,Angel,LPL,Angel,Angel_(Xiang_Tao),Edward Gaming,EDward_Gaming
+EDG,Assum,LPL,Assum,Assum,Edward Gaming,EDward_Gaming
+EDG,Wink,LPL,Wink,Wink,Edward Gaming,EDward_Gaming
 FPX,Sheer,LPL,Sheer,Sheer,Funplus Phoenix,Funplus Phoenix
 FPX,Sorrow,LPL,Sorrow,Sorrow_(Li_De-Ming),Funplus Phoenix,Funplus Phoenix
 FPX,Shad0w,LPL,Shad0w,Shad0w,Funplus Phoenix,Funplus Phoenix
@@ -221,14 +220,14 @@ TES,Jackeylove,LPL,Jackeylove,JackeyLove,Top Esports,Top_Esports
 TES,Crisp,LPL,Crisp,Crisp,Top Esports,Top_Esports
 TT,HOYA,LPL,HOYA,HOYA,TT,ThunderTalk Gaming
 TT,beichuan,LPL,beichuan,beichuan,TT,ThunderTalk Gaming
-TT,Setab,LPL,Setab,Setab,TT,ThunderTalk Gaming
+TT,SeTab,LPL,SeTab,SeTab,TT,ThunderTalk Gaming
 TT,1xn,LPL,1xn,1xn,TT,ThunderTalk Gaming
 TT,Feather,LPL,Feather,Feather,TT,ThunderTalk Gaming
 UP,1Jiang,LPL,1Jiang,1Jiang,Ultra Prime,Ultra Prime
 UP,Junhao,LPL,Junhao,Junhao,Ultra Prime,Ultra Prime
 UP,Saber,LPL,Saber,Saber_(Song_Dai-Lin),Ultra Prime,Ultra Prime
 UP,Wako,LPL,Wako,Wako,Ultra Prime,Ultra Prime
-UP,RosieLove,LPL,RosieLove,RosieLove,Ultra Prime,Ultra Prime
+UP,Rosielove,LPL,Rosielove,Rosielove,Ultra Prime,Ultra Prime
 WBG,Breathe,LPL,Breathe,Breathe,Weibo Gaming,Weibo Gaming
 WBG,Tian,LPL,Tian,Tian,Weibo Gaming,Weibo Gaming
 WBG,Xiaohu,LPL,Xiaohu,Xiaohu,Weibo Gaming,Weibo Gaming
@@ -256,24 +255,24 @@ Gam,Levi,LCP,Levi,Levi,GAM Esports,GAM_Esports
 Gam,Aress,LCP,Aress,Aress,GAM Esports,GAM_Esports
 Gam,Emo,LCP,Emo,Emo,GAM Esports,GAM_Esports
 Gam,Artemis,LCP,Artemis,Artemis_(Trần_Quốc_Hưng),GAM Esports,GAM_Esports
-Gam,Easylove,LCP,Easylove,Easylove,GAM Esports,GAM_Esports
+Gam,EasyLove,LCP,EasyLove,EasyLove,GAM Esports,GAM_Esports
 Gam,Elio,LCP,Elio,Elio,GAM Esports,GAM_Esports
 TLN,Azhi,LCP,Azhi,Azhi,TALON,TALON_(Hong_Kong_Team)
 TLN,Karsa,LCP,Karsa,Karsa,TALON,TALON_(Hong_Kong_Team)
 TLN,FoFo,LCP,FoFo,FoFo,TALON,TALON_(Hong_Kong_Team)
 TLN,Betty,LCP,Betty,Betty,TALON,TALON_(Hong_Kong_Team)
 TLN,Woody,LCP,Woody,Woody,TALON,TALON_(Hong_Kong_Team)
-CEC,Biopanther,LCP,Biopanther,Biopanther,Chiefs eSports Club,Chiefs_Esports_Club
-CEC,Mir,LCP,Mir,Mir_(Park_Mi-reu),Chiefs eSports Club,Chiefs_Esports_Club
-CEC,Jimien,LCP,Jimien,Jimien,Chiefs eSports Club,Chiefs_Esports_Club
-CEC,Leemas,LCP,Leemas,Leemas,Chiefs eSports Club,Chiefs_Esports_Club
-CEC,Luon,LCP,Luon,Luon,Chiefs eSports Club,Chiefs_Esports_Club
-DFM,Rayfarky,LCP,Rayfarky,Rayfarky,Detonation FocusMe,DetonatioN_FocusMe
-DFM,Guwon,LCP,Guwon,Guwon,Detonation FocusMe,DetonatioN_FocusMe
-DFM,Aria,LCP,Aria,Aria_(Lee_Ga-eul),Detonation FocusMe,DetonatioN_FocusMe
-DFM,Kakkun,LCP,Kakkun,Kakkun,Detonation FocusMe,DetonatioN_FocusMe
-DFM,Milan,LCP,Milan,Milan,Detonation FocusMe,DetonatioN_FocusMe
-DFM,Harp,LCP,Harp,Harp,Detonation FocusMe,DetonatioN_FocusMe
+CEC,BioPanther,LCP,BioPanther,BioPanther,Chiefs Esports Club,Chiefs_Esports_Club
+CEC,Mir,LCP,Mir,Mir_(Park_Mi-reu),Chiefs Esports Club,Chiefs_Esports_Club
+CEC,JimieN,LCP,JimieN,JimieN,Chiefs Esports Club,Chiefs_Esports_Club
+CEC,Leemas,LCP,Leemas,Leemas,Chiefs Esports Club,Chiefs_Esports_Club
+CEC,Luon,LCP,Luon,Luon,Chiefs Esports Club,Chiefs_Esports_Club
+DFM,RayFarky,LCP,RayFarky,RayFarky,DetonatioN FocusMe,DetonatioN_FocusMe
+DFM,Guwon,LCP,Guwon,Guwon,DetonatioN FocusMe,DetonatioN_FocusMe
+DFM,Aria,LCP,Aria,Aria_(Lee_Ga-eul),DetonatioN FocusMe,DetonatioN_FocusMe
+DFM,Kakkun,LCP,Kakkun,Kakkun,DetonatioN FocusMe,DetonatioN_FocusMe
+DFM,Milan,LCP,Milan,Milan,DetonatioN FocusMe,DetonatioN_FocusMe
+DFM,Harp,LCP,Harp,Harp,DetonatioN FocusMe,DetonatioN_FocusMe
 VKE,Kratos,LCP,Kratos,Kratos,MGN Vikings Esports,MGN_Vikings_Esports
 VKE,Gury,LCP,Gury,Gury,MGN Vikings Esports,MGN_Vikings_Esports
 VKE,SanSan,LCP,SanSan,SanSan,MGN Vikings Esports,MGN_Vikings_Esports
@@ -313,21 +312,21 @@ LOS,kaiser,LVP,kaiser,kaiser,Los Heretics,Los_Heretics
 LUA,marky,LVP,marky,Marky_(Pedro_José_Serrano),LUA Gaming,LUA_Gaming
 LUA,sn1lle,LVP,sn1lle,sn1lle,LUA Gaming,LUA_Gaming
 LUA,hydra,LVP,hydra,Hydra_(Raúl_Moreno_Valero),LUA Gaming,LUA_Gaming
-LUA,shy carry,LVP,shy carry,shy carry,LUA Gaming,LUA_Gaming
+LUA,Shy Carry,LVP,Shy Carry,Shy Carry,LUA Gaming,LUA_Gaming
 LUA,click,LVP,click,Click_(Vittorio_Massolo),LUA Gaming,LUA_Gaming
 KOIA,spooder,LVP,spooder,spooder,Movistar KOI Fénix,Movistar_KOI_Fénix
 KOIA,eckas,LVP,eckas,eckas,Movistar KOI Fénix,Movistar_KOI_Fénix
 KOIA,fresskowy,LVP,fresskowy,fresskowy,Movistar KOI Fénix,Movistar_KOI_Fénix
 KOIA,UNF0RGIVEN,LVP,UNF0RGIVEN,UNF0RGIVEN,Movistar KOI Fénix,Movistar_KOI_Fénix
 KOIA,kamilius,LVP,kamilius,kamilius,Movistar KOI Fénix,Movistar_KOI_Fénix
-RMB,ibo,LVP,ibo,ibo,Ramboot Club,Ramboot_Club
+RMB,iBo,LVP,iBo,iBo,Ramboot Club,Ramboot_Club
 RMB,bluerzor,LVP,bluerzor,bluerzor,Ramboot Club,Ramboot_Club
 RMB,twohoyrz,LVP,twohoyrz,twohoyrz,Ramboot Club,Ramboot_Club
 RMB,coldraa,LVP,coldraa,coldraa,Ramboot Club,Ramboot_Club
 RMB,pyrka,LVP,pyrka,pyrka,Ramboot Club,Ramboot_Club
 UCAM,sinmivak,LVP,sinmivak,sinmivak,UCAM Esports,UCAM_Esports
 UCAM,koldo,LVP,koldo,koldo,UCAM Esports,UCAM_Esports
-UCAM,escik,LVP,escik,escik,UCAM Esports,UCAM_Esports
+UCAM,ESCIK,LVP,Escik,ESCIK,UCAM Esports,UCAM_Esports
 UCAM,andariel,LVP,andariel,andariel,UCAM Esports,UCAM_Esports
 UCAM,ilevi,LVP,ilevi,ilevi,UCAM Esports,UCAM_Esports
 VVV,cpm,LVP,cpm,cpm,Veni Vidi Vici,Veni_Vidi_Vici_(Spanish_Team)
@@ -427,7 +426,7 @@ VNC,Mauki,NLC,Mauki,Mauki,Venomcrest Esports,Venomcrest_Esports
 VNC,Lorenz,NLC,Lorenz,Lorenz,Venomcrest Esports,Venomcrest_Esports
 RS,Perkz,NLC,Perkz,Perkz,The Ruddy Sack,The_Ruddy_Sack
 RS,Jankos,NLC,Jankos,Jankos,The Ruddy Sack,The_Ruddy_Sack
-RS,Lider,NLC,Lider,Lider,The Ruddy Sack,The_Ruddy_Sack
+RS,Lider,NLC,Lider,LIDER,The Ruddy Sack,The_Ruddy_Sack
 RS,Humzh,NLC,Humzh,Humzh,The Ruddy Sack,The_Ruddy_Sack
 RS,Hustlin,NLC,Hustlin,Hustlin,The Ruddy Sack,The_Ruddy_Sack
 BKR,Szygenda,LFL,Szygenda,Szygenda,BK ROG Esports,BK_ROG_Esports
@@ -467,8 +466,8 @@ JL,Deadly,LFL,Deadly,Deadly,Joblife,Joblife
 JL,Twiizt,LFL,Twiizt,Twiizt,Joblife,Joblife
 KCB,Maynter,LFL,Maynter,Maynter,Karmine Corp Blue Stars,Karmine_Corp_Blue
 KCB,Boukada,LFL,Boukada,Boukada,Karmine Corp Blue Stars,Karmine_Corp_Blue
-KCB,Slowq,LFL,Slowq,Slowq,Karmine Corp Blue Stars,Karmine_Corp_Blue
-KCB,3xa,LFL,3xa,3xa,Karmine Corp Blue Stars,Karmine_Corp_Blue
+KCB,Slowq,LFL,Slowq,SlowQ,Karmine Corp Blue Stars,Karmine_Corp_Blue
+KCB,3xa,LFL,3xa,3XA,Karmine Corp Blue Stars,Karmine_Corp_Blue
 KCB,piero,LFL,piero,Piero_(Kim_Jung-hun),Karmine Corp Blue Stars,Karmine_Corp_Blue
 Vit.b,Vertigo,LFL,Vertigo,Vertigo,Vitality.Bee,Vitality.Bee
 Vit.b,Lurox,LFL,Lurox,Lurox,Vitality.Bee,Vitality.Bee
@@ -478,7 +477,7 @@ Vit.b,Fleshy,LFL,Fleshy,Fleshy,Vitality.Bee,Vitality.Bee
 SLY,Kryze,LFL,Kryze,Kryze,Solary,Solary
 SLY,Markoon,LFL,Markoon,Markoon,Solary,Solary
 SLY,Decay,LFL,Decay,Decay,Solary,Solary
-SLY,Takeset,LFL,Takeset,Takeset,Solary,Solary
+SLY,Takeset,LFL,Takeset,TakeSet,Solary,Solary
 SLY,Mersa,LFL,Mersa,Mersa,Solary,Solary
 BLDP,Bong,TCL,Bong,Bong_(Cho_Bo-woong),BBL Dark Passage,BBL_Dark_Passage
 BLDP,XnS,TCL,XnS,XnS,BBL Dark Passage,BBL_Dark_Passage
@@ -496,7 +495,7 @@ SUP,Skeanz,TCL,Skeanz,Skeanz,Papara SuperMassive,Papara_SuperMassive
 SUP,FIESTA,TCL,FIESTA,FIESTA_(An_Hyeon-seo),Papara SuperMassive,Papara_SuperMassive
 SUP,BAO,TCL,BAO,BAO_(Jeong_Hyeon-woo),Papara SuperMassive,Papara_SuperMassive
 SUP,Carry,TCL,Carry,Carry_(Mustafa_Selim_Yılmaz),Papara SuperMassive,Papara_SuperMassive
-ULF,Illima,TCL,Illima,IlllIma,ULF Esports,ULF_Esports
+ULF,Illlima,TCL,Illlima,IlllIma,ULF Esports,ULF_Esports
 ULF,Stefan,TCL,Stefan,Stefan,ULF Esports,ULF_Esports
 ULF,Ophelia,TCL,Ophelia,Ophelia,ULF Esports,ULF_Esports
 ULF,Grave,TCL,Grave,Grave,ULF Esports,ULF_Esports
@@ -565,7 +564,7 @@ C9,Thanatos,LTAN,Thanatos,Thanatos_(Park_Seung-gyu),Cloud9,Cloud9
 C9,Blaber,LTAN,Blaber,Blaber,Cloud9,Cloud9
 C9,Loki,LTAN,Loki,Loki_(Lee_Sang-min),Cloud9,Cloud9
 C9,Zven,LTAN,Zven,Zven,Cloud9,Cloud9
-C9,VULCAN,LTAN,VULCAN,VULCAN,Cloud9,Cloud9
+C9,Vulcan,LTAN,Vulcan,Vulcan_(Philippe_Laflamme),Cloud9,Cloud9
 DIG,Srtty,LTAN,Srtty,Srtty,Dignitas,Dignitas
 DIG,LirA,LTAN,LirA,LirA,Dignitas,Dignitas
 DIG,Keine,LTAN,Keine,Keine,Dignitas,Dignitas
@@ -578,7 +577,7 @@ FLY,Quad,LTAN,Quad,Quad,FlyQuest,FlyQuest
 FLY,Massu,LTAN,Massu,Massu,FlyQuest,FlyQuest
 FLY,Busio,LTAN,Busio,Busio,FlyQuest,FlyQuest
 LYO,Licorice,LTAN,Licorice,Licorice,LYON,LYON_(2024_American_Team)
-LYO,Oddie,LTAN,Oddie,Oddie,LYON,LYON_(2024_American_Team)
+LYO,Oddielan,LTAN,Oddielan,Oddielan,LYON,LYON_(2024_American_Team)
 LYO,Saint,LTAN,Saint,Saint_(Kang_Sung-in),LYON,LYON_(2024_American_Team)
 LYO,Hena,LTAN,Hena,Hena,LYON,LYON_(2024_American_Team)
 LYO,Lyonz,LTAN,Lyonz,Lyonz,LYON,LYON_(2024_American_Team)
@@ -590,7 +589,7 @@ SR,Bvoy,LTAN,Bvoy,Bvoy,Shopify Rebellion,Shopify_Rebellion
 SR,Ceos,LTAN,Ceos,Ceos,Shopify Rebellion,Shopify_Rebellion
 SR,Zeyzal,LTAN,Zeyzal,Zeyzal,Shopify Rebellion,Shopify_Rebellion
 TL,Impact,LTAN,Impact,Impact,Team Liquid,Team_Liquid
-TL,Umti,LTAN,Umti,Umti,Team Liquid,Team_Liquid
+TL,Umti,LTAN,Umti,UmTi,Team Liquid,Team_Liquid
 TL,APA,LTAN,APA,APA_(Eain_Stearns),Team Liquid,Team_Liquid
 TL,Yeon,LTAN,Yeon,Yeon_(Sean_Sung),Team Liquid,Team_Liquid
 TL,CoreJJ,LTAN,CoreJJ,CoreJJ,Team Liquid,Team_Liquid
@@ -600,7 +599,7 @@ TL,CoreJJ,LTAN,CoreJJ,CoreJJ,Team Liquid,Team_Liquid
 100T,FBI,LTAN,FBI,FBI,100 Thieves,100_Thieves
 100T,Eyla,LTAN,Eyla,Eyla,100 Thieves,100_Thieves
 DSG,Castle,LTAN,Castle,Castle_(Cho_Hyeon-seong),Disguised,Disguised
-DSG,Exyu,LTAN,Exyu,Exyu,Disguised,Disguised
+DSG,eXyu,LTAN,eXyu,EXyu,Disguised,Disguised
 DSG,Abbedagge,LTAN,Abbedagge,Abbedagge,Disguised,Disguised
 DSG,ScaryJerry,LTAN,ScaryJerry,ScaryJerry,Disguised,Disguised
 DSG,Huhi,LTAN,Huhi,Huhi,Disguised,Disguised
@@ -618,7 +617,7 @@ BIG,Limit,PRM,Limit,LIMIT_(Dino_Tot),Berlin International Gaming,Berlin_Internat
 DD,Send0o,PRM,Send0o,Send0o,Dung Dynasty,Dung_Dynasty
 DD,Raider,PRM,Raider,Raider,Dung Dynasty,Dung_Dynasty
 DD,Agurin,PRM,Agurin,Agurin,Dung Dynasty,Dung_Dynasty
-DD,Evolved,PRM,Evolved,KatEvolved,Dung Dynasty,Dung_Dynasty
+DD,KatEvolved,PRM,KatEvolved,KatEvolved,Dung Dynasty,Dung_Dynasty
 DD,Phantasm,PRM,Phantasm,Phantasm,Dung Dynasty,Dung_Dynasty
 DD,Innaxe,PRM,Innaxe,Innaxe,Dung Dynasty,Dung_Dynasty
 DD,Efias,PRM,Efias,Efias,Dung Dynasty,Dung_Dynasty
@@ -634,13 +633,13 @@ EINS,Broeki,PRM,Broeki,Broeki,Eintracht Spandau,Eintracht_Spandau
 EINS,Lilipp,PRM,Lilipp,Lilipp,Eintracht Spandau,Eintracht_Spandau
 EINF,Sacre,PRM,Sacre,Sacre,Eintracht Frankfurt,Eintracht_Frankfurt
 EINF,Techoteco,PRM,Techoteco,Techoteco,Eintracht Frankfurt,Eintracht_Frankfurt
-EINF,Zazee,PRM,Zazee,Zazee,Eintracht Frankfurt,Eintracht_Frankfurt
+EINF,Zazee,PRM,Zazee,ZaZee,Eintracht Frankfurt,Eintracht_Frankfurt
 EINF,Varry,PRM,Varry,Varry,Eintracht Frankfurt,Eintracht_Frankfurt
 EINF,Veignorem,PRM,Veignorem,Veignorem,Eintracht Frankfurt,Eintracht_Frankfurt
 KHK,Venour,PRM,Venour,Venour,Kaufland Hangry Knights,Kaufland_Hangry_Knights
 KHK,Rabble,PRM,Rabble,Rabble_(Jochem_van_Graafeiland),Kaufland Hangry Knights,Kaufland_Hangry_Knights
 KHK,Random,PRM,Random,Random,Kaufland Hangry Knights,Kaufland_Hangry_Knights
-KHK,Fun K3y,PRM,Fun K3y,Fun K3y,Kaufland Hangry Knights,Kaufland_Hangry_Knights
+KHK,FunK3y,PRM,Fun K3y,Fun_K3y,Kaufland Hangry Knights,Kaufland_Hangry_Knights
 KHK,Visdom,PRM,Visdom,Visdom,Kaufland Hangry Knights,Kaufland_Hangry_Knights
 ROSS,Nice Guy Ben,PRM,Nice Guy Ben,Nice_Guy_Ben,ROSSMANN Centaurs,ROSSMANN_Centaurs
 ROSS,Vikes,PRM,Vikes,Vikes,ROSSMANN Centaurs,ROSSMANN_Centaurs
