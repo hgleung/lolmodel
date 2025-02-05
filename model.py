@@ -26,10 +26,8 @@ class Model:
             'kp%'   # This is KP% in the original data
         ]
         
-        # Create a new dataframe with only the selected columns
-        model_df = df[selected_columns].copy()  # Create explicit copy
-        
-        return model_df
+        # Return the dataframe with only the selected columns
+        return df[selected_columns]
 
     def load_team_data(self):
         # Read the CSV file
@@ -289,8 +287,8 @@ if __name__ == "__main__":
     # Load the data
     model = Model()    
     print("\nLeague Prediction Model")
-    print("Enter input as: <player_name>/<opponent_team_code>/<win_chance>")
-    print("Example: Ruler/T1/0.7")
+    print("Enter input as: <player_name> <opponent_team_code> <win_chance>")
+    print("Example: Ruler T1 0.7")
     print("Type 'quit' to exit")
     
     while True:
@@ -304,7 +302,7 @@ if __name__ == "__main__":
             
             # Parse input
             try:
-                player_name, opponent_team_code, win_chance = user_input.split('/')
+                player_name, opponent_team_code, win_chance = user_input.split()
                 win_chance = float(win_chance)
                 
                 # Validate win chance
