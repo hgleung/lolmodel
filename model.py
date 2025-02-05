@@ -382,7 +382,7 @@ if __name__ == "__main__":
     model = Model()
     print("\nLeague Prediction Model")
     print("Enter input as: <player_name> <opponent_team_code> <win_chance>")
-    print("Example: Ruler T1 0.7")
+    print("Example: Ruler HLE 0.7")
     print("Type 'quit' to exit")
 
     while True:

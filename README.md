@@ -14,5 +14,7 @@ This repository contains scripts to collect and analyze League of Legends player
 - [x] Scrape team data (also gol)
 - [x] IndexMatch
 - [x] Scrape LX match data (fandom)
+- [x] Implement RF regression model
 - [ ] Tune model
 - [ ] Scrape PP / UD for lines
+- [ ] Alternative stats: assists, deaths, fantasy points
