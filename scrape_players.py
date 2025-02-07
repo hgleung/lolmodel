@@ -25,8 +25,22 @@ try:
     html_io = StringIO(response.text)
     tables = pd.read_html(html_io)
     
-    # The player stats table is usually the first table
-    df = tables[0]
+    # Find the player stats table - it should have specific columns
+    player_table = None
+    required_columns = {'Player', 'Games', 'Win rate', 'KDA', 'Avg. Kills', 'Avg. Deaths', 'Avg. Assists', 'CSM', 'KP%'}
+    
+    for table in tables:
+        if isinstance(table.columns, pd.MultiIndex):
+            table.columns = table.columns.get_level_values(-1)
+        table_cols = set(str(col) for col in table.columns)
+        if any(required_columns.intersection(table_cols)):
+            player_table = table
+            break
+    
+    if player_table is None:
+        raise ValueError("Could not find player stats table with required columns")
+    
+    df = player_table
     
     # Clean up column names - convert to strings first
     df.columns = [str(col).strip().replace(' ', '_').lower() for col in df.columns]
@@ -59,6 +73,7 @@ try:
     # Save to CSV
     output_file = os.path.join(data_dir, 'player_stats.csv')
     df.to_csv(output_file, index=False)
+    print(f"Saved player stats with columns: {list(df.columns)}")
     
     # Update README timestamp
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')

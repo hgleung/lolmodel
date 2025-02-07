@@ -1,8 +1,12 @@
 import pandas as pd
-import numpy as np
 import requests
 from bs4 import BeautifulSoup
 from io import StringIO
+import os
+
+# Get the directory where this script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(script_dir, 'data')
 
 def get_match_history(leaguepedia_id):
     """
@@ -13,13 +17,13 @@ def get_match_history(leaguepedia_id):
     
     # Set up headers to mimic a browser request
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
     
     try:
         # Make the request
         response = requests.get(url, headers=headers)
-        response.raise_for_status()
+        response.raise_for_status()  # Raise an exception for bad status codes
         
         # Parse the HTML
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -27,7 +31,8 @@ def get_match_history(leaguepedia_id):
         # Find the match history table
         table = soup.find('table', {'class': 'wikitable'})
         if not table:
-            raise ValueError("Match history table not found")
+            print(f"No match history found for player: {leaguepedia_id}")
+            return None
         
         # Convert table to string for pandas
         table_html = str(table)
@@ -45,9 +50,6 @@ def get_match_history(leaguepedia_id):
         
         # Reset index
         df = df.reset_index(drop=True)
-        
-        # Print current columns for debugging
-        # print("\nCurrent columns:", df.columns.tolist())
         
         # Map the columns we want
         column_mapping = {
@@ -88,14 +90,20 @@ def get_match_history(leaguepedia_id):
         numeric_columns = ['kills', 'deaths', 'assists']
         for col in numeric_columns:
             if col in df.columns:
-                df[col] = pd.to_numeric(df[col], errors='coerce')
+                try:
+                    df[col] = pd.to_numeric(df[col])
+                except ValueError:
+                    # Keep as string if conversion fails
+                    pass
         
         return df
-    
+        
     except requests.RequestException as e:
-        raise Exception(f"Failed to fetch match history: {str(e)}")
+        print(f"Error fetching match history for {leaguepedia_id}: {str(e)}")
+        return None
     except Exception as e:
-        raise Exception(f"Error processing match history: {str(e)}")
+        print(f"Error processing match history for {leaguepedia_id}: {str(e)}")
+        return None
 
 def calculate_averages(match_history, result_type='Win', last_n=[3, 5, 7, 9]):
     """
@@ -103,19 +111,42 @@ def calculate_averages(match_history, result_type='Win', last_n=[3, 5, 7, 9]):
     If there aren't enough games to fill the window, uses all available games.
     Returns a dictionary with averages for each N.
     """
-    # Filter for the specified result
-    filtered_df = match_history[match_history['result'] == result_type]
+    if match_history is None or match_history.empty:
+        return {}
+    
+    # Create a copy of the DataFrame to avoid SettingWithCopyWarning
+    match_history = match_history.copy()
+    
+    # Filter by result type if specified
+    if result_type:
+        match_history = match_history[match_history['result'] == result_type]
+    
+    # If no matches found after filtering
+    if match_history.empty:
+        return {}
+    
+    # Convert numeric columns if they aren't already
+    numeric_columns = ['kills', 'deaths', 'assists']
+    for col in numeric_columns:
+        if col in match_history.columns:
+            try:
+                match_history.loc[:, col] = pd.to_numeric(match_history[col], errors='coerce').fillna(0)
+            except ValueError:
+                # If conversion fails, set to 0
+                match_history.loc[:, col] = 0
     
     averages = {}
     for n in last_n:
-        # Use all available games if we don't have enough to fill the window
-        available_games = min(n, len(filtered_df))
-        if available_games > 0:
-            last_n_games = filtered_df.head(available_games)
-            avg_kills = last_n_games['kills'].astype(float).mean()
-            averages[f'last_{n}_{result_type.lower()}_avg'] = avg_kills
-        else:
-            # Only use 0 if we have no games at all
-            averages[f'last_{n}_{result_type.lower()}_avg'] = 0.0
+        # Take last n games
+        last_games = match_history.head(n)
+        
+        # Calculate averages
+        avg_kills = last_games['kills'].mean() if 'kills' in last_games else 0
+        avg_deaths = last_games['deaths'].mean() if 'deaths' in last_games else 0
+        avg_assists = last_games['assists'].mean() if 'assists' in last_games else 0
+        
+        # Store with the correct key format
+        key = f'last_{n}_{"win" if result_type == "Win" else "loss"}_avg'
+        averages[key] = avg_kills  # We only use kills for the win/loss averages
     
     return averages

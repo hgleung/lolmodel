@@ -5,14 +5,18 @@ import numpy as np
 import joblib
 import os
 
+# Get the directory where this script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(script_dir, 'data')
+
 class Model:
     def __init__(self):
         """Initialize the model by loading necessary data"""
         self.players = self.load_player_data()
         self.teams = self.load_team_data()
-        self.indexmatch = pd.read_csv('data/index_match.csv', keep_default_na=False)
+        self.indexmatch = pd.read_csv(os.path.join(data_dir, 'index_match.csv'), keep_default_na=False)
         self.rf_model = None
-        self.model_path = 'data/rf_model.joblib'
+        self.model_path = os.path.join(data_dir, 'rf_model.joblib')
         self.feature_columns = [
             'avg_kills', 'win_rate', 'kda', 'team_kills_avg', 
             'team_kills_per_min', 'player_3_game_win_avg', 
@@ -43,11 +47,11 @@ class Model:
             'csm',
             'kp%'   # This is KP% in the original data
         ]
-        return pd.read_csv('data/player_stats.csv')[selected_columns]
+        return pd.read_csv(os.path.join(data_dir, 'player_stats.csv'))[selected_columns]
 
     def load_team_data(self):
         """Load and preprocess team statistics"""
-        return pd.read_csv('data/team_stats.csv')
+        return pd.read_csv(os.path.join(data_dir, 'team_stats.csv'))
 
     def _get_team_stats(self, team_name):
         """Helper to get team stats"""
@@ -133,29 +137,39 @@ class Model:
 
         # Get player analysis
         player_analysis = self.analyze_player(player_name)
+        if not player_analysis:
+            raise ValueError(f"Could not analyze player {player_name}")
 
-        # Get win/loss averages
-        recent_perf = player_analysis['recent_performance']
+        # Get win/loss averages with default values if missing
+        recent_perf = player_analysis.get('recent_performance', {})
+        wins = recent_perf.get('wins', {})
+        losses = recent_perf.get('losses', {})
+
+        # Set win/loss averages with defaults
         for n in [3, 5, 7, 9]:
-            features[f'player_{n}_game_win_avg'] = recent_perf['wins'][f'last_{n}_win_avg']
-            features[f'player_{n}_game_loss_avg'] = recent_perf['losses'][f'last_{n}_loss_avg']
-        features['player_split_avg'] = recent_perf['split_avg']
+            win_key = f'last_{n}_win_avg'
+            loss_key = f'last_{n}_loss_avg'
+            features[f'player_{n}_game_win_avg'] = wins.get(win_key, 0)
+            features[f'player_{n}_game_loss_avg'] = losses.get(loss_key, 0)
+
+        # Get split average with default
+        features['player_split_avg'] = recent_perf.get('split_avg', 0)
 
         # Get team stats
         team_stats = self._get_team_stats(player_team)
-        features['team_kills_avg'] = team_stats['kills_/_game']
-        features['team_avg_game_time'] = self._parse_game_time(team_stats['game_duration'])
+        features['team_kills_avg'] = team_stats.get('kills_/_game', 0)
+        features['team_avg_game_time'] = self._parse_game_time(team_stats.get('game_duration', '00:00'))
 
         # Get opponent stats
         if opponent_team is not None:
             opp_stats = self._get_team_stats(opponent_team)
-            features['opp_deaths_avg'] = opp_stats['deaths_/_game']
-            features['opp_avg_game_time'] = self._parse_game_time(opp_stats['game_duration'])
+            features['opp_deaths_avg'] = opp_stats.get('deaths_/_game', 0)
+            features['opp_avg_game_time'] = self._parse_game_time(opp_stats.get('game_duration', '00:00'))
 
         # Calculate derived features
-        features['team_kills_per_min'] = features['team_kills_avg'] / features['team_avg_game_time']
+        features['team_kills_per_min'] = features['team_kills_avg'] / features['team_avg_game_time'] if features['team_avg_game_time'] > 0 else 0
         if opponent_team is not None:
-            features['opp_deaths_per_min'] = features['opp_deaths_avg'] / features['opp_avg_game_time']
+            features['opp_deaths_per_min'] = features['opp_deaths_avg'] / features['opp_avg_game_time'] if features['opp_avg_game_time'] > 0 else 0
             features['k_multi'] = features['opp_deaths_per_min'] / features['team_kills_per_min'] if features['team_kills_per_min'] > 0 else 1
 
         return features

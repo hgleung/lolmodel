@@ -25,8 +25,22 @@ try:
     html_io = StringIO(response.text)
     tables = pd.read_html(html_io)
     
-    # The team stats table is usually the first table
-    df = tables[0]
+    # Find the team stats table - it should have specific columns
+    team_table = None
+    required_columns = {'Team', 'Games', 'Win rate', 'Avg. game duration', 'Kills per game', 'Deaths per game'}
+    
+    for table in tables:
+        if isinstance(table.columns, pd.MultiIndex):
+            table.columns = table.columns.get_level_values(-1)
+        table_cols = set(str(col) for col in table.columns)
+        if any(required_columns.intersection(table_cols)):
+            team_table = table
+            break
+    
+    if team_table is None:
+        raise ValueError("Could not find team stats table with required columns")
+    
+    df = team_table
     
     # Clean up column names - convert to strings first
     df.columns = [str(col).strip().replace(' ', '_').lower() for col in df.columns]
@@ -45,9 +59,11 @@ try:
             # Try to convert other numeric values
             else:
                 try:
-                    df[col] = df[col].replace('-', '0')  # Replace '-' with '0'
+                    # Only convert non-NA values
+                    mask = (df[col] != 'NA')
+                    df.loc[mask, col] = df.loc[mask, col].replace('-', '0')
                     try:
-                        df[col] = pd.to_numeric(df[col])
+                        df.loc[mask, col] = pd.to_numeric(df.loc[mask, col])
                     except ValueError:
                         # Keep as string if conversion fails
                         pass
@@ -57,6 +73,7 @@ try:
     # Save to CSV
     output_file = os.path.join(data_dir, 'team_stats.csv')
     df.to_csv(output_file, index=False)
+    print(f"Saved team stats with columns: {list(df.columns)}")
     
     # Update README timestamp
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -75,10 +92,18 @@ try:
         ]
     
     # Find and update the team statistics timestamp
+    timestamp_found = False
     for i, line in enumerate(content):
         if '- Last scraped:' in line and 'team_stats.csv' in content[i-1]:
             content[i] = f'- Last scraped: {current_time}\n'
+            timestamp_found = True
             break
+    
+    if not timestamp_found:
+        content.extend([
+            '- team_stats.csv\n',
+            f'- Last scraped: {current_time}\n'
+        ])
     
     # Write the updated content back to README
     with open(readme_path, 'w') as f:
