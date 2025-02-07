@@ -1,48 +1,42 @@
 import pandas as pd
-import numpy as np
-import time
+import os
 from datetime import datetime
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import requests
 from io import StringIO
-import re
+
+# Get the directory where this script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(script_dir, 'data')
 
 # URL of the player statistics
 url = 'https://gol.gg/players/list/season-S15/split-Winter/tournament-ALL/'
 
-# Set up Chrome options
-chrome_options = Options()
-chrome_options.add_argument('--headless')  # Run in headless mode
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')
-
-# Initialize the Chrome WebDriver
-driver = webdriver.Chrome(options=chrome_options)
+# Set up headers
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+}
 
 try:
-    # Navigate to the URL
-    driver.get(url)
+    # Get the webpage content
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()  # Raise an exception for bad status codes
     
-    # Wait for the table to load
-    wait = WebDriverWait(driver, 10)
-    table = wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'table_list')))
+    # Parse the HTML tables using pandas
+    html_io = StringIO(response.text)
+    tables = pd.read_html(html_io)
     
-    # Get the table HTML
-    table_html = table.get_attribute('outerHTML')
+    # The player stats table is usually the first table
+    df = tables[0]
     
-    # Read the table using pandas
-    df = pd.read_html(StringIO(table_html), keep_default_na=False)[0]
-    
-    # Clean the column names - remove any special characters and spaces
-    df.columns = df.columns.str.strip().str.replace(' ', '_').str.lower()
+    # Clean up column names - convert to strings first
+    df.columns = [str(col).strip().replace(' ', '_').lower() for col in df.columns]
     
     # Convert percentage strings to floats
     for col in df.columns:
         if df[col].dtype == 'object':
+            # Convert column to string first to handle any numeric values
+            df[col] = df[col].astype(str)
+            
             # Try to convert percentage values
             if df[col].str.contains('%').any():
                 df[col] = df[col].replace('-', '0%')  # Replace '-' with '0%'
@@ -54,19 +48,33 @@ try:
                     # Only convert non-NA values
                     mask = (df[col] != 'NA')
                     df.loc[mask, col] = df.loc[mask, col].replace('-', '0')
-                    df.loc[mask, col] = pd.to_numeric(df.loc[mask, col], errors='ignore')
+                    try:
+                        df.loc[mask, col] = pd.to_numeric(df.loc[mask, col])
+                    except ValueError:
+                        # Keep as string if conversion fails
+                        pass
                 except:
                     pass
     
     # Save to CSV
-    df.to_csv('data/player_stats.csv', index=False)
+    output_file = os.path.join(data_dir, 'player_stats.csv')
+    df.to_csv(output_file, index=False)
     
-    # Update README with timestamp
-    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')
-    readme_path = 'README.md'
+    # Update README timestamp
+    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    readme_path = os.path.join(script_dir, 'README.md')
     
-    with open(readme_path, 'r') as f:
-        content = f.readlines()
+    try:
+        with open(readme_path, 'r') as f:
+            content = f.readlines()
+    except FileNotFoundError:
+        content = [
+            '# League Model Data\n',
+            '\n',
+            '## Data Files\n',
+            '- player_stats.csv\n',
+            f'- Last scraped: {current_time}\n'
+        ]
     
     # Find and update the player statistics timestamp
     for i, line in enumerate(content):
@@ -77,15 +85,7 @@ try:
     # Write the updated content back to README
     with open(readme_path, 'w') as f:
         f.writelines(content)
-    
-    # print("Data has been scraped and saved to data/player_stats.csv")
-    # print(f"README.md has been updated with timestamp: {current_time}")
-    # print(f"\nShape of the dataset: {df.shape}")
-    # print("\nFirst few rows of the data:")
-    # print(df.head())
-    # print("\nColumns in the dataset:")
-    # print(df.columns.tolist())
 
-finally:
-    # Close the browser
-    driver.quit()
+except Exception as e:
+    print(f"Error scraping player stats: {str(e)}")
+    raise

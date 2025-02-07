@@ -1,13 +1,20 @@
 import pandas as pd
 from model import Model
 from scrape_match_history import get_match_history
+import os
+import subprocess
+import time
 
 def debug_player(player_name):
     print(f"\nDebugging player: {player_name}")
     
+    # Get the directory where this script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(script_dir, 'data')
+    
     # Load index_match.csv
     print("\n1. Checking index_match.csv...")
-    index_df = pd.read_csv('data/index_match.csv', keep_default_na=False)
+    index_df = pd.read_csv(os.path.join(data_dir, 'index_match.csv'), keep_default_na=False)
     
     # Check if player exists in index (case-insensitive)
     player_data = index_df[index_df['PP ID'].str.upper() == player_name.upper()]
@@ -59,18 +66,23 @@ def debug_player(player_name):
 
 def update_stats():
     """Update both player and team statistics"""
+    start_time = time.time()
+    
     print("\nUpdating player and team statistics...")
     
     # Run both scraping scripts
-    import subprocess
+
+    # Get the directory where this script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     
     print("\nScraping player stats...")
-    subprocess.run(['python3', 'scrape_players.py'], check=True)
+    subprocess.run(['python3', os.path.join(script_dir, 'scrape_players.py')], check=True)
     
     print("\nScraping team stats...")
-    subprocess.run(['python3', 'scrape_teams.py'], check=True)
+    subprocess.run(['python3', os.path.join(script_dir, 'scrape_teams.py')], check=True)
     
-    print("\nStats update complete!")
+    elapsed_time = time.time() - start_time
+    print(f"\nStats update complete! Time taken: {elapsed_time:.2f} seconds")
 
 if __name__ == "__main__":
     # Add argument parsing
@@ -85,3 +97,5 @@ if __name__ == "__main__":
         debug_player(args.player)
     elif args.action == 'update':
         update_stats()
+    else:
+        print("Invalid action. Use 'debug' or 'update'.")
