@@ -56,6 +56,23 @@ def debug_player(player_name):
             print("\nFeatures calculated successfully:")
             for key, value in features.items():
                 print(f"{key}: {value}")
+            
+            # Test predictions for different game counts
+            print("\n6. Testing predictions for different game counts...")
+            win_chances = [0.25, 0.5, 0.75]
+            game_counts = [1, 2, 3]
+            
+            for win_chance in win_chances:
+                print(f"\nPredictions with {win_chance*100}% win chance:")
+                for num_games in game_counts:
+                    pred = model.prediction(features, win_chance, num_games)
+                    print(f"For {num_games} game(s):")
+                    print(f"  Kills: {pred['kills']:.2f}")
+                    print(f"  Assists: {pred['assists']:.2f}")
+                    print(f"  Deaths: {pred['deaths']:.2f}")
+                    # print(f"  CS: {pred['cs']:.2f}")
+                    print(f"  Fantasy Score: {pred['fantasy_score']:.2f}")
+            
         except Exception as e:
             print(f"Error calculating features: {str(e)}")
             
@@ -88,14 +105,20 @@ if __name__ == "__main__":
     # Add argument parsing
     import argparse
     parser = argparse.ArgumentParser(description='League Model Scripts')
-    parser.add_argument('action', choices=['debug', 'update'], help='Action to perform: debug (player analysis) or update (stats)')
-    parser.add_argument('--player', help='Player name for debug action')
+    subparsers = parser.add_subparsers(dest='action', help='Action to perform')
+    
+    # Debug command
+    debug_parser = subparsers.add_parser('debug', help='Debug a player')
+    debug_parser.add_argument('player_name', help='Name of the player to debug')
+    
+    # Update command
+    update_parser = subparsers.add_parser('update', help='Update stats')
     
     args = parser.parse_args()
     
-    if args.action == 'debug':
-        debug_player(args.player)
-    elif args.action == 'update':
+    if args.action == 'update':
         update_stats()
+    elif args.action == 'debug':
+        debug_player(args.player_name)
     else:
-        print("Invalid action. Use 'debug' or 'update'.")
+        parser.print_help()

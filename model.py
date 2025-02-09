@@ -151,28 +151,164 @@ class Model:
             loss_key = f'last_{n}_loss_avg'
             features[f'player_{n}_game_win_avg'] = wins.get(win_key, 0)
             features[f'player_{n}_game_loss_avg'] = losses.get(loss_key, 0)
+            features[f'player_{n}_game_win_assists_avg'] = wins.get(f'{win_key}_assists', 0)
+            features[f'player_{n}_game_loss_assists_avg'] = losses.get(f'{loss_key}_assists', 0)
+            features[f'player_{n}_game_win_deaths_avg'] = wins.get(f'{win_key}_deaths', 0)
+            features[f'player_{n}_game_loss_deaths_avg'] = losses.get(f'{loss_key}_deaths', 0)
+            features[f'player_{n}_game_win_cs_avg'] = wins.get(f'{win_key}_cs', 0)
+            features[f'player_{n}_game_loss_cs_avg'] = losses.get(f'{loss_key}_cs', 0)
 
         # Get split average with default
         features['player_split_avg'] = recent_perf.get('split_avg', 0)
+        features['player_split_assists_avg'] = player_analysis['player_stats'].get('avg_assists', 0)
+        features['player_split_deaths_avg'] = player_analysis['player_stats'].get('avg_deaths', 0)
+        features['player_csm'] = float(player_analysis['player_stats'].get('csm', 0))
 
         # Get team stats
         team_stats = self._get_team_stats(player_team)
         features['team_kills_avg'] = team_stats.get('kills_/_game', 0)
+        features['team_deaths_avg'] = team_stats.get('deaths_/_game', 0)
         features['team_avg_game_time'] = self._parse_game_time(team_stats.get('game_duration', '00:00'))
 
         # Get opponent stats
         if opponent_team is not None:
             opp_stats = self._get_team_stats(opponent_team)
             features['opp_deaths_avg'] = opp_stats.get('deaths_/_game', 0)
+            features['opp_kills_avg'] = opp_stats.get('kills_/_game', 0)
             features['opp_avg_game_time'] = self._parse_game_time(opp_stats.get('game_duration', '00:00'))
+
+            # Calculate average game time between team and opponent
+            features['avg_game_time'] = (features['team_avg_game_time'] + features['opp_avg_game_time']) / 2
 
         # Calculate derived features
         features['team_kills_per_min'] = features['team_kills_avg'] / features['team_avg_game_time'] if features['team_avg_game_time'] > 0 else 0
+        features['team_deaths_per_min'] = features['team_deaths_avg'] / features['team_avg_game_time'] if features['team_avg_game_time'] > 0 else 0
         if opponent_team is not None:
             features['opp_deaths_per_min'] = features['opp_deaths_avg'] / features['opp_avg_game_time'] if features['opp_avg_game_time'] > 0 else 0
+            features['opp_kills_per_min'] = features['opp_kills_avg'] / features['opp_avg_game_time'] if features['opp_avg_game_time'] > 0 else 0
             features['k_multi'] = features['opp_deaths_per_min'] / features['team_kills_per_min'] if features['team_kills_per_min'] > 0 else 1
+            features['d_multi'] = features['team_deaths_per_min'] / features['opp_kills_per_min'] if features['opp_kills_per_min'] > 0 else 1
 
         return features
+
+    def prediction(self, features, win_chance, num_games=1):
+        """
+        Calculate preliminary prediction using weighted averages of player performance
+
+        Args:
+            features (dict): Dictionary of calculated features
+            win_chance (float): Probability of winning (0-1)
+            num_games (int): Number of games to predict for
+
+        Returns:
+            dict: Dictionary containing predicted kills, assists, deaths, cs, and fantasy score
+        """
+        # Basic kill prediction using split average
+        basic_kill_prediction = (
+            win_chance * 1.25 * features['player_split_avg'] +
+            (1 - win_chance) * 0.75 * features['player_split_avg']
+        )
+
+        # Basic assist prediction using split average
+        basic_assist_prediction = (
+            win_chance * 1.25 * features['player_split_assists_avg'] +
+            (1 - win_chance) * 0.75 * features['player_split_assists_avg']
+        )
+
+        # Basic death prediction using split average
+        basic_death_prediction = (
+            win_chance * 0.75 * features['player_split_deaths_avg'] +
+            (1 - win_chance) * 1.25 * features['player_split_deaths_avg']
+        )
+
+        # Adjust k_multi and d_multi for predictions
+        k_multi_adjustment = (features['k_multi'] - 1) / 5 + 1
+        d_multi_adjustment = (features['d_multi'] - 1) / 5 + 1
+
+        # Calculate weighted win predictions
+        win_kill_prediction = (
+            features['player_3_game_win_avg'] * 1 +
+            features['player_5_game_win_avg'] * 2 +
+            features['player_7_game_win_avg'] * 3 +
+            features['player_9_game_win_avg'] * 4
+        ) / 10
+        win_kill_prediction *= k_multi_adjustment
+
+        win_assist_prediction = (
+            features['player_3_game_win_assists_avg'] * 1 +
+            features['player_5_game_win_assists_avg'] * 2 +
+            features['player_7_game_win_assists_avg'] * 3 +
+            features['player_9_game_win_assists_avg'] * 4
+        ) / 10
+        win_assist_prediction *= k_multi_adjustment
+
+        win_death_prediction = (
+            features['player_3_game_win_deaths_avg'] * 1 +
+            features['player_5_game_win_deaths_avg'] * 2 +
+            features['player_7_game_win_deaths_avg'] * 3 +
+            features['player_9_game_win_deaths_avg'] * 4
+        ) / 10
+        win_death_prediction *= d_multi_adjustment
+
+        # Calculate weighted loss predictions
+        loss_kill_prediction = (
+            features['player_3_game_loss_avg'] * 1 +
+            features['player_5_game_loss_avg'] * 2 +
+            features['player_7_game_loss_avg'] * 3 +
+            features['player_9_game_loss_avg'] * 4
+        ) / 10
+        loss_kill_prediction *= k_multi_adjustment
+
+        loss_assist_prediction = (
+            features['player_3_game_loss_assists_avg'] * 1 +
+            features['player_5_game_loss_assists_avg'] * 2 +
+            features['player_7_game_loss_assists_avg'] * 3 +
+            features['player_9_game_loss_assists_avg'] * 4
+        ) / 10
+        loss_assist_prediction *= k_multi_adjustment
+
+        loss_death_prediction = (
+            features['player_3_game_loss_deaths_avg'] * 1 +
+            features['player_5_game_loss_deaths_avg'] * 2 +
+            features['player_7_game_loss_deaths_avg'] * 3 +
+            features['player_9_game_loss_deaths_avg'] * 4
+        ) / 10
+        loss_death_prediction *= d_multi_adjustment
+
+        # Combine predictions based on win chance
+        advanced_kill_prediction = win_chance * win_kill_prediction + (1 - win_chance) * loss_kill_prediction
+        advanced_assist_prediction = win_chance * win_assist_prediction + (1 - win_chance) * loss_assist_prediction
+        advanced_death_prediction = win_chance * win_death_prediction + (1 - win_chance) * loss_death_prediction
+
+        # Average basic and advanced predictions
+        final_kill_prediction = (basic_kill_prediction + advanced_kill_prediction) / 2
+        final_assist_prediction = (basic_assist_prediction + advanced_assist_prediction) / 2
+        final_death_prediction = (basic_death_prediction + advanced_death_prediction) / 2
+
+        # Calculate CS prediction
+        predicted_cs = features['player_csm'] * features['avg_game_time']
+
+        # Multiply by number of games
+        final_kill_prediction *= num_games
+        final_assist_prediction *= num_games
+        final_death_prediction *= num_games
+        predicted_cs *= num_games
+
+        # Calculate fantasy score
+        fantasy_score = (
+            3 * final_kill_prediction +
+            2 * final_assist_prediction -
+            final_death_prediction +
+            0.02 * predicted_cs
+        )
+
+        return {
+            'kills': max(0, final_kill_prediction),
+            'assists': max(0, final_assist_prediction),
+            'deaths': max(0, final_death_prediction),
+            'cs': max(0, predicted_cs),
+            'fantasy_score': max(0, fantasy_score)
+        }
 
     def calculate_prediction_features(self, player_name, opponent_team_code):
         """Calculate all features needed for prediction"""
@@ -189,52 +325,6 @@ class Model:
         # Calculate features
         features = self._calculate_features(player_name, player_team, opponent_team)
         return features
-
-    def prediction(self, features, win_chance):
-        """
-        Calculate preliminary prediction using weighted averages of player performance
-
-        Args:
-            features (dict): Dictionary of calculated features
-            win_chance (float): Probability of winning (0-1)
-
-        Returns:
-            float: Predicted kills for the player
-        """
-        # Basic prediction using split average
-        basic_prediction = (
-            win_chance * 1.25 * features['player_split_avg'] +
-            (1 - win_chance) * 0.75 * features['player_split_avg']
-        )
-
-        # Adjust k_multi for predictions
-        k_multi_adjustment = (features['k_multi'] - 1) / 5 + 1
-
-        # Calculate weighted win prediction
-        win_prediction = (
-            features['player_3_game_win_avg'] * 1 +
-            features['player_5_game_win_avg'] * 2 +
-            features['player_7_game_win_avg'] * 3 +
-            features['player_9_game_win_avg'] * 4
-        ) / 10
-        win_prediction *= k_multi_adjustment
-
-        # Calculate weighted loss prediction
-        loss_prediction = (
-            features['player_3_game_loss_avg'] * 1 +
-            features['player_5_game_loss_avg'] * 2 +
-            features['player_7_game_loss_avg'] * 3 +
-            features['player_9_game_loss_avg'] * 4
-        ) / 10
-        loss_prediction *= k_multi_adjustment
-
-        # Combine predictions based on win chance
-        advanced_prediction = win_chance * win_prediction + (1 - win_chance) * loss_prediction
-
-        # Average basic and advanced predictions
-        final_prediction = (basic_prediction + advanced_prediction) / 2
-
-        return max(0, final_prediction)
 
     def train_random_forest(self, force_retrain=False):
         """
@@ -418,7 +508,7 @@ if __name__ == "__main__":
 
                 # Make baseline prediction
                 baseline_pred = model.prediction(model.calculate_prediction_features(player_name, opponent_team_code), win_chance)
-                print(f"Baseline prediction: {baseline_pred:.2f} kills")
+                print(f"Baseline prediction: {baseline_pred['kills']:.2f} kills, {baseline_pred['assists']:.2f} assists, {baseline_pred['deaths']:.2f} deaths, {baseline_pred['fantasy_score']:.2f} fantasy score")
 
                 # Make RF prediction
                 rf_pred = model.predict_rf(player_name, opponent_team_code, win_chance)

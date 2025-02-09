@@ -45,6 +45,9 @@ def get_match_history(leaguepedia_id):
         if isinstance(df.columns, pd.MultiIndex):
             df.columns = df.columns.get_level_values(-1)
         
+        # Remove any rows that don't contain actual match data (e.g., headers, descriptions)
+        df = df[df['Date'].str.match(r'\d{4}-\d{2}-\d{2}', na=False)]
+        
         # Drop the first row which contains descriptions
         df = df.iloc[1:]
         
@@ -117,6 +120,16 @@ def calculate_averages(match_history, result_type='Win', last_n=[3, 5, 7, 9]):
     # Create a copy of the DataFrame to avoid SettingWithCopyWarning
     match_history = match_history.copy()
     
+    # Convert date column to datetime if it exists
+    if 'date' in match_history.columns:
+        match_history['date'] = pd.to_datetime(match_history['date'])
+        # Filter for 2025 matches only
+        match_history = match_history[match_history['date'].dt.year == 2025]
+        
+        # If no matches in 2025, return empty dict
+        if match_history.empty:
+            return {}
+    
     # Filter by result type if specified
     if result_type:
         match_history = match_history[match_history['result'] == result_type]
@@ -126,7 +139,7 @@ def calculate_averages(match_history, result_type='Win', last_n=[3, 5, 7, 9]):
         return {}
     
     # Convert numeric columns if they aren't already
-    numeric_columns = ['kills', 'deaths', 'assists']
+    numeric_columns = ['kills', 'deaths', 'assists', 'cs']
     for col in numeric_columns:
         if col in match_history.columns:
             try:
@@ -140,13 +153,17 @@ def calculate_averages(match_history, result_type='Win', last_n=[3, 5, 7, 9]):
         # Take last n games
         last_games = match_history.head(n)
         
-        # Calculate averages
+        # Calculate averages for kills, assists, deaths, and cs
         avg_kills = last_games['kills'].mean() if 'kills' in last_games else 0
-        avg_deaths = last_games['deaths'].mean() if 'deaths' in last_games else 0
         avg_assists = last_games['assists'].mean() if 'assists' in last_games else 0
+        avg_deaths = last_games['deaths'].mean() if 'deaths' in last_games else 0
+        avg_cs = last_games['cs'].mean() if 'cs' in last_games else 0
         
         # Store with the correct key format
-        key = f'last_{n}_{"win" if result_type == "Win" else "loss"}_avg'
-        averages[key] = avg_kills  # We only use kills for the win/loss averages
+        base_key = f'last_{n}_{"win" if result_type == "Win" else "loss"}_avg'
+        averages[base_key] = avg_kills  # Keep original kills average
+        averages[f'{base_key}_assists'] = avg_assists  # Add assists average
+        averages[f'{base_key}_deaths'] = avg_deaths  # Add deaths average
+        averages[f'{base_key}_cs'] = avg_cs  # Add CS average
     
     return averages
