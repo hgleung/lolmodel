@@ -8383,12 +8383,96 @@
   ],
   "included": [
     {
+      "type": "stat_type",
+      "id": "810",
+      "attributes": {
+        "lfg_ignored_leagues": [],
+        "name": "MAPS 1-3 Deaths",
+        "rank": 3
+      }
+    },
+    {
       "type": "stat_average",
-      "id": "114983",
+      "id": "114986",
       "attributes": {
         "average": 0,
         "count": 0,
         "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114915",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114917",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "29247",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "72083",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "34965",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "58597",
+      "attributes": {
+        "combo": false,
+        "display_name": "Kael",
+        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Kael",
+        "position": "SUP",
+        "team": "AL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "6994"
+          }
+        }
       }
     },
     {
@@ -8402,16 +8486,7 @@
     },
     {
       "type": "stat_average",
-      "id": "114912",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108701",
+      "id": "108699",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8420,16 +8495,145 @@
     },
     {
       "type": "new_player",
-      "id": "199715",
+      "id": "224037",
       "attributes": {
-        "combo": false,
-        "display_name": "Quad",
-        "image_url": "https://static.prizepicks.com/images/manual/FlyQuest_LoL.png",
+        "combo": true,
+        "display_name": "Cube + Tianzhen + Karis",
+        "image_url": "https://static.prizepicks.com/images/manual/WE+WE+WE.png",
         "league": "LoL",
         "league_id": 121,
         "market": null,
-        "name": "Quad",
-        "position": "MID",
+        "name": "Cube + Tianzhen + Karis",
+        "position": "TOP/JNG/MID",
+        "team": "WE",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7443"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "190448",
+      "attributes": {
+        "combo": true,
+        "display_name": "Shanks + Hope",
+        "image_url": "https://static.prizepicks.com/images/manual/AL+AL (1).png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Shanks + Hope",
+        "position": "MID/BOT",
+        "team": "AL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "6994"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114759",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "41834",
+      "attributes": {
+        "combo": false,
+        "display_name": "Taeyoon",
+        "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Taeyoon",
+        "position": "BOT",
+        "team": "WE",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9516"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "34959",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "team",
+      "id": "9516",
+      "attributes": {
+        "abbreviation": "KDF",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27653",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "201346",
+      "attributes": {
+        "combo": true,
+        "display_name": "Bwipo + Inspired + Quad",
+        "image_url": "https://static.prizepicks.com/images/manual/FLY+FLY+FLY.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Bwipo + Inspired + Quad",
+        "position": "TOP/JNG/MID",
         "team": "FLY",
         "team_name": null
       },
@@ -8449,12 +8653,159 @@
       }
     },
     {
+      "type": "new_player",
+      "id": "225972",
+      "attributes": {
+        "combo": false,
+        "display_name": "dyNquedo",
+        "image_url": "https://static.prizepicks.com/images/manual/Pain25.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "dyNquedo",
+        "position": "MID",
+        "team": "PNG",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9362"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "225973",
+      "attributes": {
+        "combo": false,
+        "display_name": "TitaN",
+        "image_url": "https://static.prizepicks.com/images/manual/Pain25.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "TitaN",
+        "position": "BOT",
+        "team": "PNG",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9362"
+          }
+        }
+      }
+    },
+    {
       "type": "stat_average",
-      "id": "114898",
+      "id": "27623",
       "attributes": {
         "average": 0,
         "count": 0,
         "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226047",
+      "attributes": {
+        "combo": false,
+        "display_name": "Sheiden",
+        "image_url": "https://static.prizepicks.com/images/manual/DIG_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Sheiden",
+        "position": "JNG",
+        "team": "DIG",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "120"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114904",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114987",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "115046",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226024",
+      "attributes": {
+        "combo": false,
+        "display_name": "Tutsz",
+        "image_url": "https://static.prizepicks.com/images/manual/6DfKl42.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Tutsz",
+        "position": "MID",
+        "team": "FUR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9520"
+          }
+        }
       }
     },
     {
@@ -8487,7 +8838,16 @@
     },
     {
       "type": "stat_average",
-      "id": "108684",
+      "id": "114983",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114901",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8496,25 +8856,178 @@
     },
     {
       "type": "stat_type",
-      "id": "747",
+      "id": "500",
       "attributes": {
         "lfg_ignored_leagues": [],
-        "name": "MAPS 1-2 Assists",
-        "rank": 14
+        "name": "MAPS 1-2 Kills (Combo)",
+        "rank": 8
       }
     },
     {
-      "type": "stat_average",
-      "id": "27650",
+      "type": "new_player",
+      "id": "226025",
       "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
+        "combo": false,
+        "display_name": "Ayu",
+        "image_url": "https://static.prizepicks.com/images/manual/6DfKl42.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Ayu",
+        "position": "BOT",
+        "team": "FUR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9520"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "198526",
+      "attributes": {
+        "combo": false,
+        "display_name": "Tarzan",
+        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Tarzan",
+        "position": "JNG",
+        "team": "AL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "6990"
+          }
+        }
+      }
+    },
+    {
+      "type": "team",
+      "id": "6994",
+      "attributes": {
+        "abbreviation": "AL",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "40686",
+      "attributes": {
+        "combo": false,
+        "display_name": "Inspired",
+        "image_url": "https://static.prizepicks.com/images/manual/FlyQuest_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Inspired",
+        "position": "JNG",
+        "team": "FLY",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "8124"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "222533",
+      "attributes": {
+        "combo": true,
+        "display_name": "Flandre + Tarzan + Shanks",
+        "image_url": "https://static.prizepicks.com/images/manual/AL+AL+AL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Flandre + Tarzan + Shanks",
+        "position": "TOP/JNG/MID",
+        "team": "AL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "6994"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226011",
+      "attributes": {
+        "combo": true,
+        "display_name": "Fudge + Contractz + Palafox",
+        "image_url": "https://static.prizepicks.com/images/manual/SR+SR+SR.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Fudge + Contractz + Palafox",
+        "position": "TOP/JNG/MID",
+        "team": "SR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "8058"
+          }
+        }
       }
     },
     {
       "type": "stat_average",
-      "id": "27652",
+      "id": "115047",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8531,19 +9044,19 @@
       }
     },
     {
-      "type": "stat_average",
-      "id": "114763",
+      "type": "stat_type",
+      "id": "334",
       "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
+        "lfg_ignored_leagues": [],
+        "name": "MAP 3 Kills",
+        "rank": 40
       }
     },
     {
       "type": "team",
-      "id": "6994",
+      "id": "7014",
       "attributes": {
-        "abbreviation": "AL",
+        "abbreviation": "IG",
         "market": null,
         "name": null,
         "primary_color": null,
@@ -8553,7 +9066,7 @@
     },
     {
       "type": "stat_average",
-      "id": "34960",
+      "id": "27650",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8562,7 +9075,7 @@
     },
     {
       "type": "stat_average",
-      "id": "27632",
+      "id": "108700",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8571,38 +9084,11 @@
     },
     {
       "type": "stat_average",
-      "id": "34965",
+      "id": "114907",
       "attributes": {
         "average": 0,
         "count": 0,
         "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114993",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27644",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_type",
-      "id": "334",
-      "attributes": {
-        "lfg_ignored_leagues": [],
-        "name": "MAP 3 Kills",
-        "rank": 40
       }
     },
     {
@@ -8636,8 +9122,38 @@
       }
     },
     {
+      "type": "new_player",
+      "id": "58616",
+      "attributes": {
+        "combo": false,
+        "display_name": "Hope",
+        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Hope",
+        "position": "BOT",
+        "team": "AL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "6994"
+          }
+        }
+      }
+    },
+    {
       "type": "stat_average",
-      "id": "114917",
+      "id": "108717",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8646,7 +9162,44 @@
     },
     {
       "type": "stat_average",
-      "id": "108733",
+      "id": "114902",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "game",
+      "id": "47865",
+      "attributes": {
+        "created_at": "2025-02-06T14:08:46-05:00",
+        "end_time": null,
+        "external_game_id": "PNGFUR45697.6666666667",
+        "is_live": false,
+        "metadata": {
+          "game_id": "PNGFUR45697.6666666667",
+          "game_info": {
+            "status": "pre-game",
+            "teams": {
+              "away": {
+                "abbreviation": "PNG"
+              },
+              "home": {
+                "abbreviation": "FUR"
+              }
+            }
+          },
+          "league_name": "LoL"
+        },
+        "start_time": "2025-02-09T16:00:00-05:00",
+        "status": "pre-game",
+        "updated_at": "2025-02-06T14:08:46-05:00"
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114788",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8655,7 +9208,7 @@
     },
     {
       "type": "stat_average",
-      "id": "114979",
+      "id": "27636",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8663,8 +9216,17 @@
       }
     },
     {
+      "type": "stat_type",
+      "id": "827",
+      "attributes": {
+        "lfg_ignored_leagues": [],
+        "name": "MAPS 1-2 Deaths",
+        "rank": 15
+      }
+    },
+    {
       "type": "stat_average",
-      "id": "72083",
+      "id": "114909",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8674,6 +9236,343 @@
     {
       "type": "stat_average",
       "id": "114910",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108715",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114900",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "duration",
+      "id": "323",
+      "attributes": {
+        "name": "MAP 3"
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226022",
+      "attributes": {
+        "combo": false,
+        "display_name": "Guigo",
+        "image_url": "https://static.prizepicks.com/images/manual/6DfKl42.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Guigo",
+        "position": "TOP",
+        "team": "FUR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9520"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "38646",
+      "attributes": {
+        "combo": false,
+        "display_name": "Cariok",
+        "image_url": "https://static.prizepicks.com/images/manual/Pain25.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Cariok",
+        "position": "JNG",
+        "team": "PNG",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9362"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27789",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "198524",
+      "attributes": {
+        "combo": false,
+        "display_name": "Vampire",
+        "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Vampire",
+        "position": "SUP",
+        "team": "WE",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7014"
+          }
+        }
+      }
+    },
+    {
+      "type": "team",
+      "id": "6990",
+      "attributes": {
+        "abbreviation": "WBG",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108686",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108713",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114898",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114786",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "team",
+      "id": "7012",
+      "attributes": {
+        "abbreviation": "OMG",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27624",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "37795",
+      "attributes": {
+        "combo": false,
+        "display_name": "Shanks",
+        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Shanks",
+        "position": "MID",
+        "team": "AL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "6994"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27635",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108697",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108701",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114903",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "40913",
+      "attributes": {
+        "combo": false,
+        "display_name": "UmTi",
+        "image_url": "https://static.prizepicks.com/images/manual/VbeE97I.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "UmTi",
+        "position": "JNG",
+        "team": "TL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7407"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "95524",
+      "attributes": {
+        "combo": false,
+        "display_name": "APA",
+        "image_url": "https://static.prizepicks.com/images/manual/VbeE97I.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "APA",
+        "position": "MID",
+        "team": "TL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7407"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27626",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27788",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -8720,135 +9619,12 @@
       }
     },
     {
-      "type": "team",
-      "id": "7014",
-      "attributes": {
-        "abbreviation": "IG",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "198524",
-      "attributes": {
-        "combo": false,
-        "display_name": "Vampire",
-        "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Vampire",
-        "position": "SUP",
-        "team": "WE",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7014"
-          }
-        }
-      }
-    },
-    {
       "type": "stat_average",
-      "id": "114787",
+      "id": "114913",
       "attributes": {
         "average": 0,
         "count": 0,
         "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114992",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "95409",
-      "attributes": {
-        "combo": false,
-        "display_name": "Busio",
-        "image_url": "https://static.prizepicks.com/images/manual/FlyQuest_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Busio",
-        "position": "SUP",
-        "team": "FLY",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "8124"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "201341",
-      "attributes": {
-        "combo": true,
-        "display_name": "Impact + UmTi + APA",
-        "image_url": "https://static.prizepicks.com/images/manual/TL+TL+TL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Impact + UmTi + APA",
-        "position": "TOP/JNG/MID",
-        "team": "TL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7407"
-          }
-        }
-      }
-    },
-    {
-      "type": "team",
-      "id": "9520",
-      "attributes": {
-        "abbreviation": "FUR",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
       }
     },
     {
@@ -8861,12 +9637,31 @@
       }
     },
     {
-      "type": "stat_average",
-      "id": "29237",
+      "type": "game",
+      "id": "47870",
       "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
+        "created_at": "2025-02-06T14:08:54-05:00",
+        "end_time": null,
+        "external_game_id": "SRTL45697.6666666667",
+        "is_live": false,
+        "metadata": {
+          "game_id": "SRTL45697.6666666667",
+          "game_info": {
+            "status": "pre-game",
+            "teams": {
+              "away": {
+                "abbreviation": "SR"
+              },
+              "home": {
+                "abbreviation": "TL"
+              }
+            }
+          },
+          "league_name": "LoL"
+        },
+        "start_time": "2025-02-09T16:00:00-05:00",
+        "status": "pre-game",
+        "updated_at": "2025-02-06T14:08:54-05:00"
       }
     },
     {
@@ -8879,18 +9674,57 @@
       }
     },
     {
-      "type": "new_player",
-      "id": "37795",
+      "type": "stat_average",
+      "id": "114993",
       "attributes": {
-        "combo": false,
-        "display_name": "Shanks",
-        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27642",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "team",
+      "id": "120",
+      "attributes": {
+        "abbreviation": "DIG",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "115029",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226062",
+      "attributes": {
+        "combo": true,
+        "display_name": "Srtty + Lira + Keine",
+        "image_url": "https://static.prizepicks.com/images/manual/DIG+DIG+DIG.png",
         "league": "LoL",
         "league_id": 121,
         "market": null,
-        "name": "Shanks",
-        "position": "MID",
-        "team": "AL",
+        "name": "Srtty + Lira + Keine",
+        "position": "TOP/JNG/MID",
+        "team": "DIG",
         "team_name": null
       },
       "relationships": {
@@ -8903,144 +9737,23 @@
         "team_data": {
           "data": {
             "type": "team",
-            "id": "6994"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27633",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27653",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "projection_type",
-      "id": "2",
-      "attributes": {
-        "name": "Single Stat"
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114759",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27792",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "38646",
-      "attributes": {
-        "combo": false,
-        "display_name": "Cariok",
-        "image_url": "https://static.prizepicks.com/images/manual/Pain25.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Cariok",
-        "position": "JNG",
-        "team": "PNG",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9362"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27643",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27635",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226024",
-      "attributes": {
-        "combo": false,
-        "display_name": "Tutsz",
-        "image_url": "https://static.prizepicks.com/images/manual/6DfKl42.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Tutsz",
-        "position": "MID",
-        "team": "FUR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9520"
+            "id": "120"
           }
         }
       }
     },
     {
       "type": "new_player",
-      "id": "225988",
+      "id": "95225",
       "attributes": {
         "combo": false,
-        "display_name": "Palafox",
+        "display_name": "Bvoy",
         "image_url": "https://static.prizepicks.com/images/manual/SR_LoL.png",
         "league": "LoL",
         "league_id": 121,
         "market": null,
-        "name": "Palafox",
-        "position": "MID",
+        "name": "Bvoy",
+        "position": "BOT",
         "team": "SR",
         "team_name": null
       },
@@ -9061,7 +9774,259 @@
     },
     {
       "type": "stat_average",
-      "id": "114786",
+      "id": "26818",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108714",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226063",
+      "attributes": {
+        "combo": true,
+        "display_name": "Keine + Tomo",
+        "image_url": "https://static.prizepicks.com/images/manual/DIG&DIG.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Keine + Tomo",
+        "position": "MID/BOT",
+        "team": "DIG",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "120"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "40716",
+      "attributes": {
+        "combo": false,
+        "display_name": "Karis",
+        "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Karis",
+        "position": "MID",
+        "team": "WE",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "6993"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114981",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27655",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114905",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "29237",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "16229",
+      "attributes": {
+        "combo": false,
+        "display_name": "CoreJJ",
+        "image_url": "https://static.prizepicks.com/images/manual/VbeE97I.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "CoreJJ",
+        "position": "SUP",
+        "team": "TL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7407"
+          }
+        }
+      }
+    },
+    {
+      "type": "team",
+      "id": "8058",
+      "attributes": {
+        "abbreviation": "SR",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114916",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_type",
+      "id": "542",
+      "attributes": {
+        "lfg_ignored_leagues": [],
+        "name": "MAPS 1-3 Kills (Combo)",
+        "rank": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "95412",
+      "attributes": {
+        "combo": false,
+        "display_name": "Yeon",
+        "image_url": "https://static.prizepicks.com/images/manual/VbeE97I.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Yeon",
+        "position": "BOT",
+        "team": "TL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7407"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226048",
+      "attributes": {
+        "combo": false,
+        "display_name": "Keine",
+        "image_url": "https://static.prizepicks.com/images/manual/DIG_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Keine",
+        "position": "MID",
+        "team": "DIG",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "120"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27652",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108716",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114992",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -9070,9 +10035,9 @@
     },
     {
       "type": "team",
-      "id": "7407",
+      "id": "9520",
       "attributes": {
-        "abbreviation": "TL",
+        "abbreviation": "FUR",
         "market": null,
         "name": null,
         "primary_color": null,
@@ -9111,20 +10076,8 @@
       }
     },
     {
-      "type": "team",
-      "id": "6995",
-      "attributes": {
-        "abbreviation": "JDG",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
       "type": "stat_average",
-      "id": "108698",
+      "id": "108733",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -9163,9 +10116,803 @@
     },
     {
       "type": "duration",
-      "id": "323",
+      "id": "724",
       "attributes": {
-        "name": "MAP 3"
+        "name": "MAPS 1-3"
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114979",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "34961",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "109233",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "225988",
+      "attributes": {
+        "combo": false,
+        "display_name": "Palafox",
+        "image_url": "https://static.prizepicks.com/images/manual/SR_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Palafox",
+        "position": "MID",
+        "team": "SR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "8058"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108698",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "game",
+      "id": "47871",
+      "attributes": {
+        "created_at": "2025-02-06T14:08:55-05:00",
+        "end_time": null,
+        "external_game_id": "DIGFLY45697.7916666667",
+        "is_live": false,
+        "metadata": {
+          "game_id": "DIGFLY45697.7916666667",
+          "game_info": {
+            "status": "pre-game",
+            "teams": {
+              "away": {
+                "abbreviation": "FLY"
+              },
+              "home": {
+                "abbreviation": "DIG"
+              }
+            }
+          },
+          "league_name": "LoL"
+        },
+        "start_time": "2025-02-09T19:00:00-05:00",
+        "status": "pre-game",
+        "updated_at": "2025-02-06T14:08:55-05:00"
+      }
+    },
+    {
+      "type": "team",
+      "id": "8124",
+      "attributes": {
+        "abbreviation": "FLY",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27792",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114762",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114977",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "34130",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_type",
+      "id": "330",
+      "attributes": {
+        "lfg_ignored_leagues": [],
+        "name": "MAPS 1-2 Kills",
+        "rank": 11
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "225989",
+      "attributes": {
+        "combo": false,
+        "display_name": "Zeyzal",
+        "image_url": "https://static.prizepicks.com/images/manual/SR_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Zeyzal",
+        "position": "SUP",
+        "team": "SR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "8058"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27633",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "34966",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "104470",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "projection_type",
+      "id": "2",
+      "attributes": {
+        "name": "Single Stat"
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226023",
+      "attributes": {
+        "combo": false,
+        "display_name": "Tatu",
+        "image_url": "https://static.prizepicks.com/images/manual/6DfKl42.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Tatu",
+        "position": "JNG",
+        "team": "FUR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9520"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114785",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "34135",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114982",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114911",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114990",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "34978",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "team",
+      "id": "7407",
+      "attributes": {
+        "abbreviation": "TL",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114978",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_type",
+      "id": "747",
+      "attributes": {
+        "lfg_ignored_leagues": [],
+        "name": "MAPS 1-2 Assists",
+        "rank": 14
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "14959",
+      "attributes": {
+        "combo": false,
+        "display_name": "Flandre",
+        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Flandre",
+        "position": "TOP",
+        "team": "AL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "6995"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "191097",
+      "attributes": {
+        "combo": true,
+        "display_name": "APA + Yeon",
+        "image_url": "https://static.prizepicks.com/images/manual/TL+TL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "APA + Yeon",
+        "position": "MID/BOT",
+        "team": "TL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7407"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "115030",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27640",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "34960",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "224038",
+      "attributes": {
+        "combo": true,
+        "display_name": "Karis + Taeyoon",
+        "image_url": "https://static.prizepicks.com/images/manual/WE&WE.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Karis + Taeyoon",
+        "position": "MID/BOT",
+        "team": "WE",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7443"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "201341",
+      "attributes": {
+        "combo": true,
+        "display_name": "Impact + UmTi + APA",
+        "image_url": "https://static.prizepicks.com/images/manual/TL+TL+TL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Impact + UmTi + APA",
+        "position": "TOP/JNG/MID",
+        "team": "TL",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7407"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "200290",
+      "attributes": {
+        "combo": true,
+        "display_name": "Quad + Massu",
+        "image_url": "https://static.prizepicks.com/images/manual/FLY&FLY.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Quad + Massu",
+        "position": "MID/BOT",
+        "team": "FLY",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "8124"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "225970",
+      "attributes": {
+        "combo": false,
+        "display_name": "Wizer",
+        "image_url": "https://static.prizepicks.com/images/manual/Pain25.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Wizer",
+        "position": "TOP",
+        "team": "PNG",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "9362"
+          }
+        }
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "225986",
+      "attributes": {
+        "combo": false,
+        "display_name": "Fudge",
+        "image_url": "https://static.prizepicks.com/images/manual/SR_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Fudge",
+        "position": "TOP",
+        "team": "SR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "8058"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27646",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "199715",
+      "attributes": {
+        "combo": false,
+        "display_name": "Quad",
+        "image_url": "https://static.prizepicks.com/images/manual/FlyQuest_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Quad",
+        "position": "MID",
+        "team": "FLY",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "8124"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27656",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114906",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_type",
+      "id": "331",
+      "attributes": {
+        "lfg_ignored_leagues": [],
+        "name": "MAPS 1-3 Kills",
+        "rank": 1
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "108685",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114908",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114991",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "team",
+      "id": "7443",
+      "attributes": {
+        "abbreviation": "WE",
+        "market": null,
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27622",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "40602",
+      "attributes": {
+        "combo": false,
+        "display_name": "Cube",
+        "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Cube",
+        "position": "TOP",
+        "team": "WE",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "7012"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27625",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114980",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114899",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "36445",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114912",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "new_player",
+      "id": "226010",
+      "attributes": {
+        "combo": true,
+        "display_name": "Palafox + Bvoy",
+        "image_url": "https://static.prizepicks.com/images/manual/SR+SR.png",
+        "league": "LoL",
+        "league_id": 121,
+        "market": null,
+        "name": "Palafox + Bvoy",
+        "position": "MID/BOT",
+        "team": "SR",
+        "team_name": null
+      },
+      "relationships": {
+        "league": {
+          "data": {
+            "type": "league",
+            "id": "121"
+          }
+        },
+        "team_data": {
+          "data": {
+            "type": "team",
+            "id": "8058"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114763",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
       }
     },
     {
@@ -9182,7 +10929,7 @@
     },
     {
       "type": "stat_average",
-      "id": "114901",
+      "id": "61092",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -9199,18 +10946,36 @@
       }
     },
     {
+      "type": "stat_average",
+      "id": "108684",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "27644",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
       "type": "new_player",
-      "id": "40716",
+      "id": "226046",
       "attributes": {
         "combo": false,
-        "display_name": "Karis",
-        "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
+        "display_name": "Srtty",
+        "image_url": "https://static.prizepicks.com/images/manual/DIG_LoL.png",
         "league": "LoL",
         "league_id": 121,
         "market": null,
-        "name": "Karis",
-        "position": "MID",
-        "team": "WE",
+        "name": "Srtty",
+        "position": "TOP",
+        "team": "DIG",
         "team_name": null
       },
       "relationships": {
@@ -9223,18 +10988,9 @@
         "team_data": {
           "data": {
             "type": "team",
-            "id": "6993"
+            "id": "120"
           }
         }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114908",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
       }
     },
     {
@@ -9268,38 +11024,8 @@
       }
     },
     {
-      "type": "new_player",
-      "id": "226011",
-      "attributes": {
-        "combo": true,
-        "display_name": "Fudge + Contractz + Palafox",
-        "image_url": "https://static.prizepicks.com/images/manual/SR+SR+SR.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Fudge + Contractz + Palafox",
-        "position": "TOP/JNG/MID",
-        "team": "SR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "8058"
-          }
-        }
-      }
-    },
-    {
       "type": "stat_average",
-      "id": "115046",
+      "id": "114914",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -9308,190 +11034,7 @@
     },
     {
       "type": "stat_average",
-      "id": "114760",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108735",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "16229",
-      "attributes": {
-        "combo": false,
-        "display_name": "CoreJJ",
-        "image_url": "https://static.prizepicks.com/images/manual/VbeE97I.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "CoreJJ",
-        "position": "SUP",
-        "team": "TL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7407"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114990",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108699",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114986",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "115029",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "201346",
-      "attributes": {
-        "combo": true,
-        "display_name": "Bwipo + Inspired + Quad",
-        "image_url": "https://static.prizepicks.com/images/manual/FLY+FLY+FLY.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Bwipo + Inspired + Quad",
-        "position": "TOP/JNG/MID",
-        "team": "FLY",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "8124"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_type",
-      "id": "330",
-      "attributes": {
-        "lfg_ignored_leagues": [],
-        "name": "MAPS 1-2 Kills",
-        "rank": 11
-      }
-    },
-    {
-      "type": "team",
-      "id": "7012",
-      "attributes": {
-        "abbreviation": "OMG",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
-      "type": "team",
-      "id": "8058",
-      "attributes": {
-        "abbreviation": "SR",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108715",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27656",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114987",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "109233",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "104470",
+      "id": "114787",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -9529,569 +11072,35 @@
       }
     },
     {
+      "type": "stat_average",
+      "id": "108735",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "109234",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
       "type": "new_player",
-      "id": "95524",
+      "id": "88319",
       "attributes": {
         "combo": false,
-        "display_name": "APA",
-        "image_url": "https://static.prizepicks.com/images/manual/VbeE97I.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "APA",
-        "position": "MID",
-        "team": "TL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7407"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226010",
-      "attributes": {
-        "combo": true,
-        "display_name": "Palafox + Bvoy",
-        "image_url": "https://static.prizepicks.com/images/manual/SR+SR.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Palafox + Bvoy",
-        "position": "MID/BOT",
-        "team": "SR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "8058"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "115030",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_type",
-      "id": "827",
-      "attributes": {
-        "lfg_ignored_leagues": [],
-        "name": "MAPS 1-2 Deaths",
-        "rank": 15
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "224037",
-      "attributes": {
-        "combo": true,
-        "display_name": "Cube + Tianzhen + Karis",
-        "image_url": "https://static.prizepicks.com/images/manual/WE+WE+WE.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Cube + Tianzhen + Karis",
-        "position": "TOP/JNG/MID",
-        "team": "WE",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7443"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226062",
-      "attributes": {
-        "combo": true,
-        "display_name": "Srtty + Lira + Keine",
-        "image_url": "https://static.prizepicks.com/images/manual/DIG+DIG+DIG.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Srtty + Lira + Keine",
-        "position": "TOP/JNG/MID",
-        "team": "DIG",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "120"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27625",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108686",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114909",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114900",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114913",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "190448",
-      "attributes": {
-        "combo": true,
-        "display_name": "Shanks + Hope",
-        "image_url": "https://static.prizepicks.com/images/manual/AL+AL (1).png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Shanks + Hope",
-        "position": "MID/BOT",
-        "team": "AL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "6994"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "34978",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114977",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_type",
-      "id": "810",
-      "attributes": {
-        "lfg_ignored_leagues": [],
-        "name": "MAPS 1-3 Deaths",
-        "rank": 3
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27624",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "41834",
-      "attributes": {
-        "combo": false,
-        "display_name": "Taeyoon",
+        "display_name": "Tianzhen",
         "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
         "league": "LoL",
         "league_id": 121,
         "market": null,
-        "name": "Taeyoon",
-        "position": "BOT",
-        "team": "WE",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9516"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "34961",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "29247",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114981",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108697",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "225972",
-      "attributes": {
-        "combo": false,
-        "display_name": "dyNquedo",
-        "image_url": "https://static.prizepicks.com/images/manual/Pain25.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "dyNquedo",
-        "position": "MID",
-        "team": "PNG",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9362"
-          }
-        }
-      }
-    },
-    {
-      "type": "game",
-      "id": "47870",
-      "attributes": {
-        "created_at": "2025-02-06T14:08:54-05:00",
-        "end_time": null,
-        "external_game_id": "SRTL45697.6666666667",
-        "is_live": false,
-        "metadata": {
-          "game_id": "SRTL45697.6666666667",
-          "game_info": {
-            "status": "pre-game",
-            "teams": {
-              "away": {
-                "abbreviation": "SR"
-              },
-              "home": {
-                "abbreviation": "TL"
-              }
-            }
-          },
-          "league_name": "LoL"
-        },
-        "start_time": "2025-02-09T16:00:00-05:00",
-        "status": "pre-game",
-        "updated_at": "2025-02-06T14:08:54-05:00"
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114899",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226048",
-      "attributes": {
-        "combo": false,
-        "display_name": "Keine",
-        "image_url": "https://static.prizepicks.com/images/manual/DIG_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Keine",
-        "position": "MID",
-        "team": "DIG",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "120"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "95412",
-      "attributes": {
-        "combo": false,
-        "display_name": "Yeon",
-        "image_url": "https://static.prizepicks.com/images/manual/VbeE97I.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Yeon",
-        "position": "BOT",
-        "team": "TL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7407"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "58616",
-      "attributes": {
-        "combo": false,
-        "display_name": "Hope",
-        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Hope",
-        "position": "BOT",
-        "team": "AL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "6994"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "34135",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114903",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114914",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "league",
-      "id": "121",
-      "attributes": {
-        "active": true,
-        "f2p_enabled": false,
-        "icon": "lol",
-        "image_url": "https://static.prizepicks.com/images/leagues/production/48.svg",
-        "last_five_games_enabled": false,
-        "league_icon_id": 48,
-        "name": "LoL",
-        "parent_id": null,
-        "parent_name": null,
-        "projections_count": 0,
-        "rank": 205,
-        "show_trending": true
-      },
-      "relationships": {
-        "projection_filters": {
-          "data": []
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "40913",
-      "attributes": {
-        "combo": false,
-        "display_name": "UmTi",
-        "image_url": "https://static.prizepicks.com/images/manual/VbeE97I.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "UmTi",
+        "name": "Tianzhen",
         "position": "JNG",
-        "team": "TL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7407"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "40602",
-      "attributes": {
-        "combo": false,
-        "display_name": "Cube",
-        "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Cube",
-        "position": "TOP",
         "team": "WE",
         "team_name": null
       },
@@ -10111,68 +11120,26 @@
       }
     },
     {
-      "type": "new_player",
-      "id": "14959",
+      "type": "stat_type",
+      "id": "752",
       "attributes": {
-        "combo": false,
-        "display_name": "Flandre",
-        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Flandre",
-        "position": "TOP",
-        "team": "AL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "6995"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "225989",
-      "attributes": {
-        "combo": false,
-        "display_name": "Zeyzal",
-        "image_url": "https://static.prizepicks.com/images/manual/SR_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Zeyzal",
-        "position": "SUP",
-        "team": "SR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "8058"
-          }
-        }
+        "lfg_ignored_leagues": [],
+        "name": "MAPS 1-3 Assists",
+        "rank": 2
       }
     },
     {
       "type": "stat_average",
-      "id": "27636",
+      "id": "34964",
+      "attributes": {
+        "average": 0,
+        "count": 0,
+        "max_value": 0
+      }
+    },
+    {
+      "type": "stat_average",
+      "id": "114994",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -10181,16 +11148,16 @@
     },
     {
       "type": "new_player",
-      "id": "40686",
+      "id": "95409",
       "attributes": {
         "combo": false,
-        "display_name": "Inspired",
+        "display_name": "Busio",
         "image_url": "https://static.prizepicks.com/images/manual/FlyQuest_LoL.png",
         "league": "LoL",
         "league_id": 121,
         "market": null,
-        "name": "Inspired",
-        "position": "JNG",
+        "name": "Busio",
+        "position": "SUP",
         "team": "FLY",
         "team_name": null
       },
@@ -10211,41 +11178,11 @@
     },
     {
       "type": "stat_average",
-      "id": "114904",
+      "id": "114760",
       "attributes": {
         "average": 0,
         "count": 0,
         "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226025",
-      "attributes": {
-        "combo": false,
-        "display_name": "Ayu",
-        "image_url": "https://static.prizepicks.com/images/manual/6DfKl42.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Ayu",
-        "position": "BOT",
-        "team": "FUR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9520"
-          }
-        }
       }
     },
     {
@@ -10279,33 +11216,6 @@
       }
     },
     {
-      "type": "stat_average",
-      "id": "108717",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27642",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114915",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
       "type": "duration",
       "id": "723",
       "attributes": {
@@ -10314,101 +11224,20 @@
     },
     {
       "type": "stat_average",
-      "id": "34130",
+      "id": "114988",
       "attributes": {
         "average": 0,
         "count": 0,
         "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226047",
-      "attributes": {
-        "combo": false,
-        "display_name": "Sheiden",
-        "image_url": "https://static.prizepicks.com/images/manual/DIG_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Sheiden",
-        "position": "JNG",
-        "team": "DIG",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "120"
-          }
-        }
       }
     },
     {
       "type": "stat_average",
-      "id": "114762",
+      "id": "114989",
       "attributes": {
         "average": 0,
         "count": 0,
         "max_value": 0
-      }
-    },
-    {
-      "type": "team",
-      "id": "120",
-      "attributes": {
-        "abbreviation": "DIG",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27622",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "225986",
-      "attributes": {
-        "combo": false,
-        "display_name": "Fudge",
-        "image_url": "https://static.prizepicks.com/images/manual/SR_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Fudge",
-        "position": "TOP",
-        "team": "SR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "8058"
-          }
-        }
       }
     },
     {
@@ -10425,64 +11254,7 @@
     },
     {
       "type": "stat_average",
-      "id": "27646",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114905",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226023",
-      "attributes": {
-        "combo": false,
-        "display_name": "Tatu",
-        "image_url": "https://static.prizepicks.com/images/manual/6DfKl42.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Tatu",
-        "position": "JNG",
-        "team": "FUR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9520"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114788",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "34966",
+      "id": "27643",
       "attributes": {
         "average": 0,
         "count": 0,
@@ -10521,659 +11293,6 @@
     },
     {
       "type": "stat_average",
-      "id": "27623",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114980",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27655",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "58597",
-      "attributes": {
-        "combo": false,
-        "display_name": "Kael",
-        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Kael",
-        "position": "SUP",
-        "team": "AL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "6994"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114991",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "26818",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114982",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226046",
-      "attributes": {
-        "combo": false,
-        "display_name": "Srtty",
-        "image_url": "https://static.prizepicks.com/images/manual/DIG_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Srtty",
-        "position": "TOP",
-        "team": "DIG",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "120"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_type",
-      "id": "331",
-      "attributes": {
-        "lfg_ignored_leagues": [],
-        "name": "MAPS 1-3 Kills",
-        "rank": 1
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "36445",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27640",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_type",
-      "id": "752",
-      "attributes": {
-        "lfg_ignored_leagues": [],
-        "name": "MAPS 1-3 Assists",
-        "rank": 2
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "34964",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108714",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "team",
-      "id": "7443",
-      "attributes": {
-        "abbreviation": "WE",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "224038",
-      "attributes": {
-        "combo": true,
-        "display_name": "Karis + Taeyoon",
-        "image_url": "https://static.prizepicks.com/images/manual/WE&WE.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Karis + Taeyoon",
-        "position": "MID/BOT",
-        "team": "WE",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7443"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226022",
-      "attributes": {
-        "combo": false,
-        "display_name": "Guigo",
-        "image_url": "https://static.prizepicks.com/images/manual/6DfKl42.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Guigo",
-        "position": "TOP",
-        "team": "FUR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9520"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "61092",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114911",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114916",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "222533",
-      "attributes": {
-        "combo": true,
-        "display_name": "Flandre + Tarzan + Shanks",
-        "image_url": "https://static.prizepicks.com/images/manual/AL+AL+AL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Flandre + Tarzan + Shanks",
-        "position": "TOP/JNG/MID",
-        "team": "AL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "6994"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "191097",
-      "attributes": {
-        "combo": true,
-        "display_name": "APA + Yeon",
-        "image_url": "https://static.prizepicks.com/images/manual/TL+TL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "APA + Yeon",
-        "position": "MID/BOT",
-        "team": "TL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7407"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "115047",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114785",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108713",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "team",
-      "id": "8124",
-      "attributes": {
-        "abbreviation": "FLY",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
-      "type": "game",
-      "id": "47871",
-      "attributes": {
-        "created_at": "2025-02-06T14:08:55-05:00",
-        "end_time": null,
-        "external_game_id": "DIGFLY45697.7916666667",
-        "is_live": false,
-        "metadata": {
-          "game_id": "DIGFLY45697.7916666667",
-          "game_info": {
-            "status": "pre-game",
-            "teams": {
-              "away": {
-                "abbreviation": "FLY"
-              },
-              "home": {
-                "abbreviation": "DIG"
-              }
-            }
-          },
-          "league_name": "LoL"
-        },
-        "start_time": "2025-02-09T19:00:00-05:00",
-        "status": "pre-game",
-        "updated_at": "2025-02-06T14:08:55-05:00"
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114906",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "225973",
-      "attributes": {
-        "combo": false,
-        "display_name": "TitaN",
-        "image_url": "https://static.prizepicks.com/images/manual/Pain25.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "TitaN",
-        "position": "BOT",
-        "team": "PNG",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9362"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "198526",
-      "attributes": {
-        "combo": false,
-        "display_name": "Tarzan",
-        "image_url": "https://static.prizepicks.com/images/manual/AL_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Tarzan",
-        "position": "JNG",
-        "team": "AL",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "6990"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108685",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114907",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114978",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "team",
-      "id": "6990",
-      "attributes": {
-        "abbreviation": "WBG",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114902",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "109234",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27788",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "226063",
-      "attributes": {
-        "combo": true,
-        "display_name": "Keine + Tomo",
-        "image_url": "https://static.prizepicks.com/images/manual/DIG&DIG.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Keine + Tomo",
-        "position": "MID/BOT",
-        "team": "DIG",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "120"
-          }
-        }
-      }
-    },
-    {
-      "type": "team",
-      "id": "9516",
-      "attributes": {
-        "abbreviation": "KDF",
-        "market": null,
-        "name": null,
-        "primary_color": null,
-        "secondary_color": null,
-        "tertiary_color": null
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108700",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "108716",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "duration",
-      "id": "724",
-      "attributes": {
-        "name": "MAPS 1-3"
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "34959",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27626",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "95225",
-      "attributes": {
-        "combo": false,
-        "display_name": "Bvoy",
-        "image_url": "https://static.prizepicks.com/images/manual/SR_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Bvoy",
-        "position": "BOT",
-        "team": "SR",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "8058"
-          }
-        }
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "114994",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_average",
       "id": "27654",
       "attributes": {
         "average": 0,
@@ -11182,162 +11301,43 @@
       }
     },
     {
-      "type": "stat_type",
-      "id": "500",
+      "type": "league",
+      "id": "121",
       "attributes": {
-        "lfg_ignored_leagues": [],
-        "name": "MAPS 1-2 Kills (Combo)",
-        "rank": 8
-      }
-    },
-    {
-      "type": "stat_average",
-      "id": "27789",
-      "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "game",
-      "id": "47865",
-      "attributes": {
-        "created_at": "2025-02-06T14:08:46-05:00",
-        "end_time": null,
-        "external_game_id": "PNGFUR45697.6666666667",
-        "is_live": false,
-        "metadata": {
-          "game_id": "PNGFUR45697.6666666667",
-          "game_info": {
-            "status": "pre-game",
-            "teams": {
-              "away": {
-                "abbreviation": "PNG"
-              },
-              "home": {
-                "abbreviation": "FUR"
-              }
-            }
-          },
-          "league_name": "LoL"
-        },
-        "start_time": "2025-02-09T16:00:00-05:00",
-        "status": "pre-game",
-        "updated_at": "2025-02-06T14:08:46-05:00"
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "225970",
-      "attributes": {
-        "combo": false,
-        "display_name": "Wizer",
-        "image_url": "https://static.prizepicks.com/images/manual/Pain25.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Wizer",
-        "position": "TOP",
-        "team": "PNG",
-        "team_name": null
+        "active": true,
+        "f2p_enabled": false,
+        "icon": "lol",
+        "image_url": "https://static.prizepicks.com/images/leagues/production/48.svg",
+        "last_five_games_enabled": false,
+        "league_icon_id": 48,
+        "name": "LoL",
+        "parent_id": null,
+        "parent_name": null,
+        "projections_count": 0,
+        "rank": 205,
+        "show_trending": true
       },
       "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "9362"
-          }
+        "projection_filters": {
+          "data": []
         }
       }
     },
     {
-      "type": "stat_average",
-      "id": "114989",
+      "type": "team",
+      "id": "6995",
       "attributes": {
-        "average": 0,
-        "count": 0,
-        "max_value": 0
-      }
-    },
-    {
-      "type": "stat_type",
-      "id": "542",
-      "attributes": {
-        "lfg_ignored_leagues": [],
-        "name": "MAPS 1-3 Kills (Combo)",
-        "rank": 0
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "200290",
-      "attributes": {
-        "combo": true,
-        "display_name": "Quad + Massu",
-        "image_url": "https://static.prizepicks.com/images/manual/FLY&FLY.png",
-        "league": "LoL",
-        "league_id": 121,
+        "abbreviation": "JDG",
         "market": null,
-        "name": "Quad + Massu",
-        "position": "MID/BOT",
-        "team": "FLY",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "8124"
-          }
-        }
-      }
-    },
-    {
-      "type": "new_player",
-      "id": "88319",
-      "attributes": {
-        "combo": false,
-        "display_name": "Tianzhen",
-        "image_url": "https://static.prizepicks.com/images/manual/WE_LoL.png",
-        "league": "LoL",
-        "league_id": 121,
-        "market": null,
-        "name": "Tianzhen",
-        "position": "JNG",
-        "team": "WE",
-        "team_name": null
-      },
-      "relationships": {
-        "league": {
-          "data": {
-            "type": "league",
-            "id": "121"
-          }
-        },
-        "team_data": {
-          "data": {
-            "type": "team",
-            "id": "7012"
-          }
-        }
+        "name": null,
+        "primary_color": null,
+        "secondary_color": null,
+        "tertiary_color": null
       }
     },
     {
       "type": "stat_average",
-      "id": "114988",
+      "id": "27632",
       "attributes": {
         "average": 0,
         "count": 0,
