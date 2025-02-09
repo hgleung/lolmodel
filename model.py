@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import joblib
 import os
+from utils import update_stats
 
 # Get the directory where this script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -495,6 +496,9 @@ if __name__ == "__main__":
             user_input = input("\nEnter prediction parameters: ").strip()
             if user_input.lower() == 'q':
                 break
+            if user_input.lower() == 'update':
+                update_stats()
+                continue
 
             player_name, opponent_team_code, win_chance = user_input.split()
             win_chance = float(win_chance)

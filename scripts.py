@@ -2,8 +2,7 @@ import pandas as pd
 from model import Model
 from scrape_match_history import get_match_history
 import os
-import subprocess
-import time
+from utils import update_stats
 
 def debug_player(player_name):
     print(f"\nDebugging player: {player_name}")
@@ -80,26 +79,6 @@ def debug_player(player_name):
         print(f"Player {player_name} not found in index_match.csv")
         # print("\nAvailable players:")
         # print(sorted(index_df['PP ID'].unique()))
-
-def update_stats():
-    """Update both player and team statistics"""
-    start_time = time.time()
-    
-    print("\nUpdating player and team statistics...")
-    
-    # Run both scraping scripts
-
-    # Get the directory where this script is located
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    print("\nScraping player stats...")
-    subprocess.run(['python3', os.path.join(script_dir, 'scrape_players.py')], check=True)
-    
-    print("\nScraping team stats...")
-    subprocess.run(['python3', os.path.join(script_dir, 'scrape_teams.py')], check=True)
-    
-    elapsed_time = time.time() - start_time
-    print(f"\nStats update complete! Time taken: {elapsed_time:.2f} seconds")
 
 if __name__ == "__main__":
     # Add argument parsing
