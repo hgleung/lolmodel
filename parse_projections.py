@@ -2,6 +2,11 @@
 
 import json
 import re
+import os
+
+# Get the absolute path of the project directory
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(PROJECT_DIR, 'data')
 
 def split_display_name(display_name):
     """Split display name into individual players, handling '+' separator and whitespace"""
@@ -124,7 +129,7 @@ def parse_projections(json_file_path):
 
 if __name__ == "__main__":
     # Example usage
-    file_path = "data/projections.json"
+    file_path = os.path.join(DATA_DIR, 'projections.json')
     try:
         results = parse_projections(file_path)
         print(f"Successfully parsed {len(results)} entries")
@@ -135,10 +140,9 @@ if __name__ == "__main__":
         
         # print("\nFirst 5 combo entries:")
         print(f"\nEntry #1:")
-        for i in range(len(results)):
-            for key, value in results[i].items():
-                print(f"{key}: {value}")
-            print("-" * 50)
+        for key, value in results[0].items():
+            print(f"{key}: {value}")
+        print("-" * 50)
 
         # print(f"\nCombo Entry #1:")
         # for key, value in combo_entries[0].items():

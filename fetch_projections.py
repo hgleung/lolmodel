@@ -6,6 +6,10 @@ import cloudscraper
 import time
 import random
 
+# Get the absolute path of the project directory
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(PROJECT_DIR, 'data')
+
 def fetch_projections(league_id=121):
     url = f'https://api.prizepicks.com/projections?league_id={league_id}'
     
@@ -40,10 +44,13 @@ def fetch_projections(league_id=121):
         response.raise_for_status()
         
         # Ensure data directory exists
-        os.makedirs('data', exist_ok=True)
+        os.makedirs(DATA_DIR, exist_ok=True)
+        
+        # Use absolute path for saving the file
+        output_file = os.path.join(DATA_DIR, 'projections.json')
         
         # Save the response to projections.json
-        with open('data/projections.json', 'w') as f:
+        with open(output_file, 'w') as f:
             json.dump(response.json(), f, indent=2)
             
         print(f"Successfully updated projections.json at {datetime.now()}")
