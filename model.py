@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import joblib
 import os
-from utils import update_stats
+from utils import update_stats, calc_odds
 
 # Get the directory where this script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -482,13 +482,80 @@ class Model:
             print(f"Error making RF prediction: {str(e)}")
             return None
 
+    def predict_match(self, team1_code, team2_code, win_chance, num_maps=1):
+        """
+        Run predictions for all players in a team vs team match
+        
+        Args:
+            team1_code (str): Code for team 1
+            team2_code (str): Code for team 2
+            win_chance (float): Win probability for team 1 (0-1)
+            num_maps (int): Number of maps to predict for
+            
+        Returns:
+            dict: Dictionary containing predictions for all players
+        """
+        results = {'team1': [], 'team2': []}
+        
+        try:            
+            # Get players for team 1
+            team1_players = self.indexmatch[self.indexmatch['Team'].str.upper() == team1_code.upper()]
+            for _, player in team1_players.iterrows():
+                try:
+                    player_name = player['PP ID']
+                    baseline_pred = self.prediction(
+                        self.calculate_prediction_features(player_name, team2_code),
+                        win_chance,
+                        num_maps
+                    )
+                    # rf_pred = self.predict_rf(player_name, team2_code, win_chance)
+                    
+                    results['team1'].append({
+                        'player': player_name,
+                        'baseline': baseline_pred
+                        # ,'rf': rf_pred
+                    })
+                except Exception as e:
+                    print(f"Error predicting for {player_name}: {str(e)}")
+                    continue
+            
+            # Get players for team 2
+            team2_players = self.indexmatch[self.indexmatch['Team'].str.upper() == team2_code.upper()]
+            for _, player in team2_players.iterrows():
+                try:
+                    player_name = player['PP ID']
+                    baseline_pred = self.prediction(
+                        self.calculate_prediction_features(player_name, team1_code),
+                        1 - win_chance,  # Use inverse win chance for team 2
+                        num_maps
+                    )
+                    # rf_pred = self.predict_rf(player_name, team1_code, 1 - win_chance)
+                    
+                    results['team2'].append({
+                        'player': player_name,
+                        'baseline': baseline_pred
+                        # ,'rf': rf_pred
+                    })
+                except Exception as e:
+                    print(f"Error predicting for {player_name}: {str(e)}")
+                    continue
+                    
+        except Exception as e:
+            print(f"Error in match prediction: {str(e)}")
+            
+        return results
+
 if __name__ == "__main__":
     # Load the data
     model = Model()
     print("\nLeague Prediction Model")
-    print("Enter input as: <player_name> <opponent_team_code> <win_chance>")
-    print("Example: Ruler HLE 0.7")
-    print("Type 'quit' to exit")
+    print("Enter input as one of:")
+    print("1. Player prediction: <player_name> <opponent_team_code> <win_chance> <optional: num maps>")
+    print("   Example: Ruler HLE 0.7")
+    print("2. Match prediction: match <team1_code> <team2_code> <team1_win_chance> <optional: num maps>")
+    print("   Example: match T1 HLE 0.7")
+    print("3. Odds calculation: odds <team_odds> <opponent_odds>")
+    print("Type 'q' to exit, 'update' to update stats")
 
     while True:
         try:
@@ -499,29 +566,71 @@ if __name__ == "__main__":
             if user_input.lower() == 'update':
                 update_stats()
                 continue
+            if user_input.lower().startswith('odds'):
+                print(f"{calc_odds(*map(float, user_input[5:].split())):.2f}")
+                continue
+                
+            inputs = user_input.split()
+            if inputs[0].lower() == 'match':
+                # Handle team vs team match prediction
+                team1_code, team2_code, win_chance = inputs[1:4]
+                win_chance = float(win_chance)
+                num_maps = int(inputs[4]) if len(inputs) > 4 else 1
+                
+                print(f"\nPredicting match: {team1_code.upper()} vs {team2_code.upper()}")
+                print(f"Win chance for {team1_code.upper()}: {win_chance:.1%}")
+                print(f"Number of maps: {num_maps}")
+                
+                results = model.predict_match(team1_code, team2_code, win_chance, num_maps)
+                
+                # Print team 1 results
+                print(f"\n{team1_code.upper()} Predictions:")
+                for player in results['team1']:
+                    print(f"\n{player['player']}:")
+                    baseline = player['baseline']
+                    print(f"Baseline: {baseline['kills']:.2f} kills, {baseline['assists']:.2f} assists, "
+                          f"{baseline['deaths']:.2f} deaths, {baseline['fantasy_score']:.2f} fantasy score")
+                    # if player['rf']:
+                    #     rf = player['rf']
+                    #     print(f"RF: {rf['prediction']:.2f} kills (confidence: {rf['confidence']:.2f})")
+                    #     print(f"RF range: ({rf['range'][0]:.2f}, {rf['range'][1]:.2f})")
+                
+                # Print team 2 results
+                print(f"\n{team2_code.upper()} Predictions:")
+                for player in results['team2']:
+                    print(f"\n{player['player']}:")
+                    baseline = player['baseline']
+                    print(f"Baseline: {baseline['kills']:.2f} kills, {baseline['assists']:.2f} assists, "
+                          f"{baseline['deaths']:.2f} deaths, {baseline['fantasy_score']:.2f} fantasy score")
+                    # if player['rf']:
+                    #     rf = player['rf']
+                    #     print(f"RF: {rf['prediction']:.2f} kills (confidence: {rf['confidence']:.2f})")
+                    #     print(f"RF range: ({rf['range'][0]:.2f}, {rf['range'][1]:.2f})")
+            else:
+                # Handle single player prediction
+                player_name, opponent_team_code, win_chance = inputs[:3]
+                win_chance = float(win_chance)
+                num_maps = int(inputs[3]) if len(inputs) > 3 else 1
 
-            player_name, opponent_team_code, win_chance = user_input.split()
-            win_chance = float(win_chance)
-
-            # Make predictions
-            try:
                 print("\nMaking predictions...")
                 print(f"Player: {player_name}")
                 print(f"Opponent: {opponent_team_code}")
                 print(f"Win chance: {win_chance:.1%}")
+                print(f"Num maps: {num_maps}")
 
-                # Make baseline prediction
-                baseline_pred = model.prediction(model.calculate_prediction_features(player_name, opponent_team_code), win_chance)
-                print(f"Baseline prediction: {baseline_pred['kills']:.2f} kills, {baseline_pred['assists']:.2f} assists, {baseline_pred['deaths']:.2f} deaths, {baseline_pred['fantasy_score']:.2f} fantasy score")
+                baseline_pred = model.prediction(
+                    model.calculate_prediction_features(player_name, opponent_team_code),
+                    win_chance,
+                    num_maps
+                )
+                print(f"Baseline prediction: {baseline_pred['kills']:.2f} kills, "
+                      f"{baseline_pred['assists']:.2f} assists, {baseline_pred['deaths']:.2f} deaths, "
+                      f"{baseline_pred['fantasy_score']:.2f} fantasy score")
 
-                # Make RF prediction
                 rf_pred = model.predict_rf(player_name, opponent_team_code, win_chance)
                 if rf_pred:
                     print(f"RF prediction: {rf_pred['prediction']:.2f} kills (confidence: {rf_pred['confidence']:.2f})")
                     print(f"RF prediction range: ({rf_pred['range'][0]:.2f}, {rf_pred['range'][1]:.2f})")
-
-            except Exception as e:
-                print(f"Error calculating prediction: {str(e)}")
 
         except ValueError as e:
             print(f"Invalid input: {str(e)}")

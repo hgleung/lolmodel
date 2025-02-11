@@ -20,3 +20,6 @@ def update_stats():
     
     elapsed_time = time.time() - start_time
     print(f"\nStats update complete! Time taken: {elapsed_time:.2f} seconds")
+
+def calc_odds(odds1, odds2):
+    return (1/odds1) / (1/odds1 + 1/odds2)

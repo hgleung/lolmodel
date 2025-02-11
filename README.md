@@ -5,10 +5,10 @@ This repository contains scripts to collect and analyze League of Legends player
 ## Data Collection History
 
 ### Player Statistics (player_stats.csv)
-- Last scraped: 2025-02-09 10:01:57
+- Last scraped: 2025-02-10 16:39:44
 
 ### Team Statistics (team_stats.csv)
-- Last scraped: 2025-02-09 10:02:00
+- Last scraped: 2025-02-10 16:39:46
 
 ## To Do:
 - [x] Scrape team data (also gol)
@@ -16,5 +16,6 @@ This repository contains scripts to collect and analyze League of Legends player
 - [x] Scrape LX match data (fandom)
 - [x] Implement RF regression model
 - [ ] Tune model
-- [ ] Scrape PP / UD for lines
-- [ ] Alternative stats: assists, deaths, fantasy points
+- [ ] Scrape UD for lines
+- [x] Alternative stats: assists, deaths, fantasy points
+- [ ] Scrape TP for odds

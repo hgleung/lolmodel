@@ -73,7 +73,7 @@ try:
     # Save to CSV
     output_file = os.path.join(data_dir, 'player_stats.csv')
     df.to_csv(output_file, index=False)
-    print(f"Saved player stats with columns: {list(df.columns)}")
+    print(f"Saved player stats with {len(df.columns)} columns")
     
     # Update README timestamp
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
