@@ -93,16 +93,31 @@ try:
         # Find changed rows by comparing values in common players
         merged_df = pd.merge(old_df[common_cols], df[common_cols], on='player', how='inner', suffixes=('_old', '_new'))
         num_changed = 0
+        
+        # Compare values with appropriate handling for different types
         for col in common_cols:
             if col != 'player':  # Skip the player column since it's our merge key
-                num_changed += (merged_df[f"{col}_old"] != merged_df[f"{col}_new"]).sum()
+                old_col = f"{col}_old"
+                new_col = f"{col}_new"
+                
+                # Convert to numeric if possible and round to handle floating point differences
+                try:
+                    old_values = pd.to_numeric(merged_df[old_col]).round(3)
+                    new_values = pd.to_numeric(merged_df[new_col]).round(3)
+                except:
+                    # For non-numeric columns, convert to string and strip whitespace
+                    old_values = merged_df[old_col].astype(str).str.strip()
+                    new_values = merged_df[new_col].astype(str).str.strip()
+                
+                num_changed += (old_values != new_values).sum()
         
-        print(f"Updated player stats: {num_changed} values changed across {len(merged_df)} players")
-        print(f"Players added: {num_added}, removed: {num_removed}")
+        if num_changed > 0:
+            print(f"Updated player stats: {num_changed} values changed across {len(merged_df)} players")
+            print(f"Players added: {num_added}, removed: {num_removed}")
+        else:
+            print("No changes to player stats")
     else:
         print(f"Created new player stats with {len(df)} rows")
-    
-    print(f"Total columns: {len(df.columns)}")
     
     # Update README timestamp
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
