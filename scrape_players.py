@@ -70,10 +70,39 @@ try:
                 except:
                     pass
     
-    # Save to CSV
+    # Load existing data if it exists
     output_file = os.path.join(data_dir, 'player_stats.csv')
+    old_df = pd.DataFrame()
+    if os.path.exists(output_file):
+        old_df = pd.read_csv(output_file)
+    
+    # Save to CSV
     df.to_csv(output_file, index=False)
-    print(f"Saved player stats with {len(df.columns)} columns")
+    
+    # Compare old and new data
+    if not old_df.empty:
+        # Get common columns
+        common_cols = list(set(old_df.columns) & set(df.columns))
+        
+        # Count new and removed players
+        old_players = set(old_df['player'])
+        new_players = set(df['player'])
+        num_added = len(new_players - old_players)
+        num_removed = len(old_players - new_players)
+        
+        # Find changed rows by comparing values in common players
+        merged_df = pd.merge(old_df[common_cols], df[common_cols], on='player', how='inner', suffixes=('_old', '_new'))
+        num_changed = 0
+        for col in common_cols:
+            if col != 'player':  # Skip the player column since it's our merge key
+                num_changed += (merged_df[f"{col}_old"] != merged_df[f"{col}_new"]).sum()
+        
+        print(f"Updated player stats: {num_changed} values changed across {len(merged_df)} players")
+        print(f"Players added: {num_added}, removed: {num_removed}")
+    else:
+        print(f"Created new player stats with {len(df)} rows")
+    
+    print(f"Total columns: {len(df.columns)}")
     
     # Update README timestamp
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')

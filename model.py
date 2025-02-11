@@ -549,18 +549,20 @@ if __name__ == "__main__":
     # Load the data
     model = Model()
     print("\nLeague Prediction Model")
-    print("Enter input as one of:")
-    print("1. Player prediction: <player_name> <opponent_team_code> <win_chance> <optional: num maps>")
-    print("   Example: Ruler HLE 0.7")
-    print("2. Match prediction: match <team1_code> <team2_code> <team1_win_chance> <optional: num maps>")
-    print("   Example: match T1 HLE 0.7")
-    print("3. Odds calculation: odds <team_odds> <opponent_odds>")
-    print("Type 'q' to exit, 'update' to update stats")
 
     while True:
         try:
             # Get user input
             user_input = input("\nEnter prediction parameters: ").strip()
+            if user_input.lower() == 'help':
+                print("Enter input as one of:")
+                print("1. Player prediction: <player_name> <opponent_team_code> <win_chance> <optional: num maps>")
+                print("   Example: Ruler HLE 0.7")
+                print("2. Match prediction: match <team1_code> <team2_code> <team1_win_chance> <optional: num maps>")
+                print("   Example: match T1 HLE 0.7")
+                print("3. Odds calculation: odds <team_odds> <opponent_odds>")
+                print("Type 'q' to exit, 'update' to update stats")
+                continue
             if user_input.lower() == 'q':
                 break
             if user_input.lower() == 'update':
@@ -613,16 +615,18 @@ if __name__ == "__main__":
                 num_maps = int(inputs[3]) if len(inputs) > 3 else 1
 
                 print("\nMaking predictions...")
-                print(f"Player: {player_name}")
-                print(f"Opponent: {opponent_team_code}")
-                print(f"Win chance: {win_chance:.1%}")
-                print(f"Num maps: {num_maps}")
 
                 baseline_pred = model.prediction(
                     model.calculate_prediction_features(player_name, opponent_team_code),
                     win_chance,
                     num_maps
                 )
+
+                print(f"Player: {model.indexmatch[model.indexmatch['PP ID'].str.upper() == player_name.upper()]['PP ID'].iloc[0]}")
+                print(f"Opponent: {model.get_team_name_from_code(opponent_team_code)}")
+                print(f"Win chance: {win_chance:.0%}")
+                print(f"Maps: {num_maps}")
+
                 print(f"Baseline prediction: {baseline_pred['kills']:.2f} kills, "
                       f"{baseline_pred['assists']:.2f} assists, {baseline_pred['deaths']:.2f} deaths, "
                       f"{baseline_pred['fantasy_score']:.2f} fantasy score")
