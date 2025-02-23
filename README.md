@@ -5,10 +5,10 @@ This repository contains scripts to collect and analyze League of Legends player
 ## Data Collection History
 
 ### Player Statistics (player_stats.csv)
-- Last scraped: 2025-02-11 09:21:21
+- Last scraped: 2025-02-23 08:37:04
 
 ### Team Statistics (team_stats.csv)
-- Last scraped: 2025-02-11 09:21:24
+- Last scraped: 2025-02-23 08:37:08
 
 ## To Do:
 - [x] Scrape team data (also gol)

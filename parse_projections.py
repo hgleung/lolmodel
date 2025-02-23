@@ -1,7 +1,6 @@
 # https://api.prizepicks.com/projections?league_id=121
 
 import json
-import re
 import os
 
 # Get the absolute path of the project directory

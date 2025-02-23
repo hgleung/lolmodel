@@ -21,3 +21,5 @@ env/
 fetch_projections.py
 data/
 *.json
+__pycache__/
+.DS_Store

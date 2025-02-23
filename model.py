@@ -561,9 +561,9 @@ if __name__ == "__main__":
                 print("2. Match prediction: match <team1_code> <team2_code> <team1_win_chance> <optional: num maps>")
                 print("   Example: match T1 HLE 0.7")
                 print("3. Odds calculation: odds <team_odds> <opponent_odds>")
-                print("Type 'q' to exit, 'update' to update stats")
+                print("Type 'quit' to exit, 'update' to update stats")
                 continue
-            if user_input.lower() == 'q':
+            if user_input.lower() in ['q', 'quit', 'exit']:
                 break
             if user_input.lower() == 'update':
                 update_stats()
