@@ -4,8 +4,8 @@ from datetime import datetime
 import requests
 from io import StringIO
 
-# Get the directory where this script is located
-script_dir = os.path.dirname(os.path.abspath(__file__))
+# Get the project root directory
+script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 data_dir = os.path.join(script_dir, 'data')
 
 # URL of the team statistics

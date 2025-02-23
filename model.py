@@ -1,10 +1,10 @@
 import pandas as pd
-from scrape_match_history import get_match_history, calculate_averages
+from scrapers.scrape_match_history import get_match_history, calculate_averages
 from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import joblib
 import os
-from utils import update_stats, calc_odds
+from tools.utils import update_stats, calc_odds
 
 # Get the directory where this script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))

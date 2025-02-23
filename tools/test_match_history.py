@@ -1,4 +1,4 @@
-from scrape_match_history import get_match_history, calculate_averages
+from scrapers.scrape_match_history import get_match_history, calculate_averages
 
 def test_player_history(player_id):
     print(f"Testing match history for player: {player_id}")

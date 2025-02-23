@@ -5,7 +5,7 @@ from io import StringIO
 import os
 
 # Get the directory where this script is located
-script_dir = os.path.dirname(os.path.abspath(__file__))
+script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 data_dir = os.path.join(script_dir, 'data')
 
 def get_match_history(leaguepedia_id):
