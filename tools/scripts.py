@@ -1,6 +1,6 @@
 import pandas as pd
 from model import Model
-from scrape_match_history import get_match_history
+from scrapers.scrape_match_history import get_match_history
 import os
 from utils import update_stats
 
