@@ -2,7 +2,7 @@ import pandas as pd
 from model import Model
 from scrapers.scrape_match_history import get_match_history
 import os
-from utils import update_stats
+from tools.utils import update_stats
 
 def debug_player(player_name):
     print(f"\nDebugging player: {player_name}")
